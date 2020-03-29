@@ -1,0 +1,41 @@
+- vue-typescript-class-without-imports - plugin not applied
+
+- try changing module : ['nested', 'counter'] to 'nested/counter'
+    - but there si the problem when -base- app adds duplicate identifier, i.e. /total/total
+- try adding vxm_..(mutation) but convert it to () => { this.$store.commit('...')} in the background
+    - but this.$store may not be available everywhere
+
+- it would be good to process them before moving forward with with/without imports
+    - use commons dir for share code for with/without imports
+
+
+
+use ts in vue.file via <script lang="ts" .. to se if the plugin works as expected
+
+// unit tests
+      // - toCamelCase
+      // - addCamelCaseValueToSnakeCaseKey
+    // split main plugin file into smaller logical blocks/files
+
+//
+plugins run before presets
+
+//
+with & without imports / """ how to implement <  inside methods so that we can inspect its parent only and transform
+    or inside data() {} and then travers inside methods? ... and what about transforms inside template?
+jest e2e tests
+
+run
+base
+plugin
+ -> plugin from ./.babelrc
+ -> node_modules/.bin/webpack
+nuxt
+ -> plugin from ./vue-nuxt/.babelrc
+ -> npm run dev
+ -> npm run generate (prod build)
+typescript
+typescript-class
+ -> ../../../node_modules/.bin/tsc whenever a .ts file changes
+ -> node_modules/.bin/webpack
+    -> @babel/plugin-transform-typescript removes typescript and then the custom plugin kicks in

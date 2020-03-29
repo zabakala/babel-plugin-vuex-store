@@ -1,1 +1,6 @@
 node_modules
+*.js.map
+.idea
+coverage/
+dist/
+build/
