@@ -458,4 +458,170 @@ module.exports.injectMappings = [
       });
     `)
   },
+
+  /**
+   * mapState & mapGetters & mapActions
+   */
+  {
+    title: `
+    Should import -mapState-, -mapGetters- & -mapActions- from -vuex-.
+    Should replace prefixed props with its store
+    counterpart, i.e. -map[State|Getters|Actions]({ ... })-.
+    `,
+
+    code: `
+      export default {
+        computed: {
+          test: 1,
+          vxs_alias: { actionTime: 'counter' },
+          vxs_countPowered: 'counter',
+          test: 1,
+          vxs_nestedRandom: 'counter/nested',
+          test() {},
+          vxg_counter: COUNTER_GETTERS.TOTAL,
+          vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+          test() {},
+          vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
+          test() {}
+        },
+        
+        methods: {
+          test() {},
+          vxa_incrementCounter: () => COUNTER_ACTIONS.INCREMENT,
+          vxa_incrementCounter: () => { return COUNTER_ACTIONS.INCREMENT },
+          test() {},
+          vxa_randomizeNumber () { return NESTED_ACTIONS.RANDOMIZE },
+          test() {}
+        }
+      };
+    `,
+
+    output: formatResult(`
+      import { mapGetters } from "vuex";
+      import { mapState } from "vuex";
+      import { mapActions } from "vuex";
+      
+      export default {
+        computed: {
+          test: 1,
+          test: 1,
+          test() {},
+          test() {},
+          test() {},
+          
+          ...mapGetters({
+            vxg_counter: COUNTER_GETTERS.TOTAL,
+            vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+            vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
+          }),
+          
+          ...mapState("counter", {
+            vxs_alias: "actionTime"
+          }),
+          
+          ...mapState("counter", {
+            vxs_countPowered: "countPowered"
+          }),
+          
+          ...mapState("counter/nested", {
+            vxs_nestedRandom: "nestedRandom"
+          })
+        },
+        
+        methods: {
+          test() {},
+          test() {},
+          test() {},
+          
+          ...mapActions({
+            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
+            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
+            vxa_randomizeNumber: NESTED_ACTIONS.RANDOMIZE
+          })
+        }
+      };
+    `)
+  },
+
+  {
+    title: `
+    Should import -mapState-, -mapGetters- & -mapActions- from -vuex-.
+    Should replace prefixed props with its store
+    counterpart, i.e. -map[State|Getters|Actions]({ ... })-.
+    We are testing typescript class components.
+    `,
+
+    code: `
+      let cmp = Component({
+        computed: {
+          test: 1,
+          vxs_alias: () => ({ actionTime: 'counter' }),
+          vxs_countPowered: () => 'counter',
+          test: 1,
+          vxs_nestedRandom: () => 'counter/nested',
+          test() {},
+          vxg_counter: COUNTER_GETTERS.TOTAL,
+          vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+          test() {},
+          vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
+          test() {}
+        },
+        
+        methods: {
+          test() {},
+          vxa_incrementCounter: () => COUNTER_ACTIONS.INCREMENT,
+          vxa_incrementCounter: () => { return COUNTER_ACTIONS.INCREMENT },
+          test() {},
+          vxa_randomizeNumber () { return NESTED_ACTIONS.RANDOMIZE },
+          test() {}
+        }
+      });
+    `,
+
+    output: formatResult(`
+      import { mapGetters } from "vuex";
+      import { mapState } from "vuex";
+      import { mapActions } from "vuex";
+      
+      let cmp = Component({
+        computed: {
+          test: 1,
+          test: 1,
+          test() {},
+          test() {},
+          test() {},
+          
+          ...mapGetters({
+            vxg_counter: COUNTER_GETTERS.TOTAL,
+            vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+            vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
+          }),
+          
+          ...mapState("counter", {
+            vxs_alias: "actionTime"
+          }),
+          
+          ...mapState("counter", {
+            vxs_countPowered: "countPowered"
+          }),
+          
+          ...mapState("counter/nested", {
+            vxs_nestedRandom: "nestedRandom"
+          })
+        },
+        
+        methods: {
+          test() {},
+          test() {},
+          test() {},
+          
+          ...mapActions({
+            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
+            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
+            vxa_randomizeNumber: NESTED_ACTIONS.RANDOMIZE
+          })
+        }
+      });
+    `)
+  },
 ]
