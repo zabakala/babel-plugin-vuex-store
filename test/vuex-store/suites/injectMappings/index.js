@@ -497,9 +497,7 @@ module.exports.injectMappings = [
     `,
 
     output: formatResult(`
-      import { mapGetters } from "vuex";
-      import { mapState } from "vuex";
-      import { mapActions } from "vuex";
+      import { mapGetters, mapState, mapActions } from "vuex";
       
       export default {
         computed: {
@@ -579,9 +577,7 @@ module.exports.injectMappings = [
     `,
 
     output: formatResult(`
-      import { mapGetters } from "vuex";
-      import { mapState } from "vuex";
-      import { mapActions } from "vuex";
+      import { mapGetters, mapState, mapActions } from "vuex";
       
       let cmp = Component({
         computed: {
@@ -619,6 +615,185 @@ module.exports.injectMappings = [
             vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
             vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
             vxa_randomizeNumber: NESTED_ACTIONS.RANDOMIZE
+          })
+        }
+      });
+    `)
+  },
+
+  /**
+   * Needless imports should not be duplicated
+   */
+  {
+    title: `
+    Imports -mapGetters- & -mapActions- from -vuex- needlessly provided.
+    Duplicate imports should not provided again.
+    `,
+
+    code: `
+      import { mapGetters, mapActions } from "vuex";
+      
+      export default {
+        computed: {
+          test() {},
+          vxg_counter: COUNTER_GETTERS.TOTAL,
+          vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+          test() {},
+          vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
+          test() {}
+        },
+        
+        methods: {
+          test() {},
+          vxa_incrementCounter: () => COUNTER_ACTIONS.INCREMENT
+        }
+      };
+    `,
+
+    output: formatResult(`
+      import { mapGetters, mapActions } from "vuex";
+      
+      export default {
+        computed: {
+          test() {},
+          test() {},
+          test() {},
+          
+          ...mapGetters({
+            vxg_counter: COUNTER_GETTERS.TOTAL,
+            vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+            vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
+          })
+        },
+        
+        methods: {
+          test() {},
+          
+          ...mapActions({
+            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT
+          })
+        }
+      };
+    `)
+  },
+
+  {
+    title: `
+    Import -mapActions- from -vuex- needlessly provided.
+    Duplicate import should not provided again.
+    `,
+
+    code: `
+      import { mapActions } from "vuex";
+      
+      export default {
+        computed: {
+          test() {},
+          vxg_counter: COUNTER_GETTERS.TOTAL,
+          vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+          test() {},
+          vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
+          test() {}
+        },
+        
+        methods: {
+          test() {},
+          vxa_incrementCounter: () => COUNTER_ACTIONS.INCREMENT
+        }
+      };
+    `,
+
+    output: formatResult(`
+      import { mapActions, mapGetters } from "vuex";
+      
+      export default {
+        computed: {
+          test() {},
+          test() {},
+          test() {},
+          
+          ...mapGetters({
+            vxg_counter: COUNTER_GETTERS.TOTAL,
+            vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+            vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
+          })
+        },
+        
+        methods: {
+          test() {},
+          
+          ...mapActions({
+            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT
+          })
+        }
+      };
+    `)
+  },
+
+  {
+    title: `
+    Imports -mapState- & -mapGetters- from -vuex- needlessly provided.
+    Duplicate imports should not be provided again.
+    We are testing typescript class components.
+    `,
+
+    code: `
+      import { mapGetters, mapState } from "vuex";
+      
+      let cmp = Component({
+        computed: {
+          vxs_alias: () => ({ actionTime: 'counter' }),
+          vxg_counter: COUNTER_GETTERS.TOTAL
+        }
+      });
+    `,
+
+    output: formatResult(`
+      import { mapGetters, mapState } from "vuex";
+      
+      let cmp = Component({
+        computed: {
+          ...mapGetters({
+            vxg_counter: COUNTER_GETTERS.TOTAL
+          }),
+          
+          ...mapState("counter", {
+            vxs_alias: "actionTime"
+          })
+        }
+      });
+    `)
+  },
+
+  {
+    title: `
+    Import -mapState- from -vuex- needlessly provided.
+    Duplicate import should not be provided again.
+    We are testing typescript class components.
+    `,
+
+    code: `
+      import { mapState } from "vuex";
+      
+      let cmp = Component({
+        computed: {
+          vxs_alias: () => ({ actionTime: 'counter' }),
+          vxg_counter: COUNTER_GETTERS.TOTAL
+        }
+      });
+    `,
+
+    output: formatResult(`
+      import { mapState, mapGetters } from "vuex";
+      
+      let cmp = Component({
+        computed: {
+          ...mapGetters({
+            vxg_counter: COUNTER_GETTERS.TOTAL
+          }),
+          
+          ...mapState("counter", {
+            vxs_alias: "actionTime"
           })
         }
       });

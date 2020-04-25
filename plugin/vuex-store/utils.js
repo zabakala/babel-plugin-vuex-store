@@ -137,17 +137,42 @@ module.exports.mapActions = (t, prop) => {
  * @param mappingType
  */
 module.exports.insertMappingImport = (t, wrapper, mappingType) => {
-  wrapper.parentPath.insertBefore(
-      t.importDeclaration(
-          [
-            t.importSpecifier(
-                t.identifier(mappingType),
-                t.identifier(mappingType)
-            )
-          ],
-          t.stringLiteral(STR_VUEX)
-      )
-  )
+  const program = wrapper.parentPath
+  const programBody = program.container
+  // collect all available top-level imports
+  const imports = programBody.filter((node) => t.isImportDeclaration(node))
+
+  let importedVuex = null
+  let importedSpecifiers = []
+
+  const buildSpecifier = (type) =>
+    t.importSpecifier(t.identifier(type), t.identifier(type))
+
+  // Save reference to imported vuex
+  // Save references to imported vuex specifiers
+  imports.forEach((node, i) => {
+    if (node.source.value !== STR_VUEX) return
+    importedVuex = { pos: i, node }
+
+    node.specifiers.forEach((n) => {
+      importedSpecifiers.push(n.local.name)
+    })
+  });
+
+  if (!importedVuex) {
+    // vuex not yet imported so do it
+    wrapper.parentPath.insertBefore(
+        t.importDeclaration(
+            [buildSpecifier(mappingType)],
+            t.stringLiteral(STR_VUEX)
+        )
+    )
+  } else if (!importedSpecifiers.includes(mappingType)) {
+    // vuex already imported but concrete specifier is not imported yet
+    importedVuex.node.specifiers.push(buildSpecifier(mappingType))
+    if (!programBody[importedVuex.pos]) throw Error('Vuex import')
+    programBody[importedVuex.pos] = importedVuex.node
+  }
 }
 
 /**
