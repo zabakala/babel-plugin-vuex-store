@@ -152,7 +152,7 @@ module.exports.insertMappingImport = (t, wrapper, mappingType) => {
   // Save references to imported vuex specifiers
   imports.forEach((node, i) => {
     if (node.source.value !== STR_VUEX) return
-    importedVuex = { pos: i, node }
+    importedVuex = node
 
     node.specifiers.forEach((n) => {
       importedSpecifiers.push(n.local.name)
@@ -169,9 +169,8 @@ module.exports.insertMappingImport = (t, wrapper, mappingType) => {
     )
   } else if (!importedSpecifiers.includes(mappingType)) {
     // vuex already imported but concrete specifier is not imported yet
-    importedVuex.node.specifiers.push(buildSpecifier(mappingType))
-    if (!programBody[importedVuex.pos]) throw Error('Vuex import')
-    programBody[importedVuex.pos] = importedVuex.node
+    if (!importedVuex) throw Error('Vuex import')
+    importedVuex.specifiers.push(buildSpecifier(mappingType))
   }
 }
 
