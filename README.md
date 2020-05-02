@@ -4,9 +4,9 @@
 [![Build Status](https://travis-ci.com/zabakala/babel-plugin-vuex-store.svg?token=qRgvpnpesqLQasVDw5sN&branch=master)](https://travis-ci.com/zabakala/babel-plugin-vuex-store)
 [![codecov](https://codecov.io/gh/zabakala/babel-plugin-vuex-store/branch/master/graph/badge.svg?token=JH6HQI0UUB)](https://codecov.io/gh/zabakala/babel-plugin-vuex-store)
 
+**Babel-Plugin-Vuex-Store** packs along a couple of features to simplify your Vuex-related coding.
 </div>
 
-**Babel-Plugin-Vuex-Store** packs along a couple of features to simplify your Vuex-related coding.
 
 ## Installation and usage
 #### Install
@@ -35,7 +35,7 @@ _.babelrc_ (order matters)
 }
 ```
 
-You app entry file should also import proper typings:
+The app entry file should also import proper typings:
 ```sh
 /// <reference path="node_modules/babel-plugin-vuex-store/vuex.d.ts" />
 ```
@@ -56,9 +56,9 @@ export const COUNTER_GETTERS = {
   TOTAL: 'counter/total'
 }
 ```
-This tends to be repetitive as you mostly state the action, mutation or getter name twice, firstly as a key and secondly as a value (after the module namespace).
+This tends to be repetitive as you mostly mention the action, mutation or getter names twice, firstly as a key and secondly as a value after the module namespace.
 
-Using this plugin allows you to specify only the module name as an array item:
+Using this plugin allows you to specify only the module name as an array item. That is all there is to it:
 ```sh
 export const COUNTER_ACTIONS = {
   INCREMENT: ['counter']
@@ -73,7 +73,7 @@ export const COUNTER_GETTERS = {
 }
 ```
 
-By now you have probably guessed it right for nested modules:
+By now you have probably guessed it right for how to deal with nested modules. Just extend the array with the nested module:
 ```sh
 export const NESTED_ACTIONS = {
   INCREMENT: ['counter', 'nestedModule']
@@ -92,6 +92,8 @@ To make it all possible, the only requirement is sticking to the following suffi
 - _ACTIONS
 - _MUTATIONS
 - _GETTERS
+
+i.e.:
 
 export const COUNTER **_ACTIONS** = { ... }<br>
 export const COUNTER **_MUTATIONS** = { ... }<br>
@@ -130,6 +132,7 @@ export const getters = {
 
 It is all the same inside a component. just do your imports, no module name-spacing needed:
 
+_example_template.vue_
 ```sh
 <template>
     ...
@@ -185,7 +188,7 @@ export const actions = {
 ```
 Is it not a lot nicer and less verbose? 
 
-Guess what, let's simplify it even more. Looking at the simple component above, you have to import _mapState_, _mapActions_ and _mapGetters_ to get Vuex things going. But the plugin makes it possible to do without these imports.
+Guess what, let's simplify it even more. Looking at the _example_template.vue_ component above, you have to import _mapState_, _mapActions_ and _mapGetters_ to get Vuex things going. But the plugin makes it possible to do without these imports.
 
 Just meet your new prefix friends:
 - **vxs_** to represent Vuex state 
