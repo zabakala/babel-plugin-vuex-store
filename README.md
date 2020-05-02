@@ -24,7 +24,11 @@ _.babelrc_ (applicable to **nuxt** as well)
 }
 ```
 #### Typescript usage
+<<<<<<< HEAD
 _.babelrc_ (order matters)
+=======
+_.babelrc_
+>>>>>>> 0ea0bbc760f11a94c739d0baa9c832846c3a6d3a
 ```sh
 {
   "plugins": [
