@@ -12,12 +12,16 @@
     "vue",
     "vuex"
   ],
-  "main": "./vuex-store",
+  "main": "./vuex-store/index.js",
   "devDependencies": {
     "@babel/preset-env": "^7.8.6",
     "babel-loader": "^8.0.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zabakala/babel-plugin-vuex-store"
   }
 }
