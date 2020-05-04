@@ -3,7 +3,7 @@ const {
   ABBR_VX_ACT,
   ABBR_VX_GET,
   ABBR_VX_STT,
-} = require('../../../../plugin/vuex-store/const')
+} = require('../../../../plugin/src/const')
 
 module.exports.injectMappings = [
   /**

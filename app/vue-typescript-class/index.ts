@@ -1,4 +1,4 @@
-/// <reference path="../../plugin/vuex-store/vuex.d.ts" />
+/// <reference path="../../plugin/src/vuex.d.ts" />
 import Vue from 'vue'
 
 import { store } from './store/modules'

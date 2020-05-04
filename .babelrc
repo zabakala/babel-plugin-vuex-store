@@ -2,6 +2,6 @@
   "plugins": [
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     "@babel/plugin-transform-typescript",
-    "./plugin/vuex-store/index.js"
+    "./plugin/src/index.js"
   ]
 }

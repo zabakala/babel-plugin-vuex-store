@@ -1,5 +1,5 @@
 const pluginTester = require('babel-plugin-tester').default
-const plugin = require('../../plugin/vuex-store')
+const plugin = require('../../plugin/src')
 
 const { arrToCamelCase } = require('./suites/arrToCamelCase')
 const { substrConstName } = require('./suites/substrConstName')
