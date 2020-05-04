@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-vuex-store",
   "author": "zabakala",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utility tools for VUEX",
   "license": "MIT",
   "keywords": [
