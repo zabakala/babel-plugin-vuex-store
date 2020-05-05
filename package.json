@@ -30,6 +30,7 @@
     "webpack-cli": "^3.3.9"
   },
   "scripts": {
+    "build:min": "webpack --config=webpack.plugin.js",
     "test": "./node_modules/.bin/jest test/vuex-store/"
   },
   "jest": {
