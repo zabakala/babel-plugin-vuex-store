@@ -5,22 +5,39 @@
     <h1>vue</h1>
     <h2>babel-plugin-vuex-store</h2>
 
-    <a href="javascript://" @click="vxa_incrementCounter(1)">
+    <a
+      class="link1"
+      href="javascript://"
+      @click="vxa_incrementCounter(1)">
       Increment Counter
     </a>
 
-    <a href="javascript://" @click="vxa_randomizeNumber">
+    <a
+      class="link2"
+      href="javascript://"
+      @click="vxa_randomizeNumber">
       Randomize Number
     </a>
 
-    <p>{{ vxg_counter || 0 }}</p>
-    <p>{{ vxg_counterMultiplied(2) || 0 }}</p>
-    <p>{{ vxs_countPowered || 0 }}</p>
+    <p class="p1-link1">
+      {{ vxg_counter || 0 }}
+    </p>
+    <p class="p2-link1">
+      {{ vxg_counterMultiplied(2) || 0 }}
+    </p>
+    <p class="p3-link1">
+      {{ vxs_countPowered || 0 }}
+    </p>
 
-    <p>root: {{ vxs_rootRandom || 0 }} vs nested: {{ vxs_nestedRandom || 0 }}</p>
-    <p>nested getter: {{ vxg_nestedRandomMultiplied(2) || 0 }}</p>
-
-    <p>Action Time: {{ vxs_alias }}</p>
+    <p class="p1-link2">
+      root: <span>{{ vxs_rootRandom || 0 }}</span> vs nested: <span>{{ vxs_nestedRandom || 0 }}</span>
+    </p>
+    <p class="p2-link2">
+      nested getter: <span>{{ vxg_nestedRandomMultiplied(2) || 0 }}</span>
+    </p>
+    <p class="p3-link2">
+      Action Time: <span>{{ vxs_alias }}</span>
+    </p>
   </center>
 </template>
 

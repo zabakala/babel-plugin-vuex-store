@@ -1,0 +1,23 @@
+{
+  "name": "babel-plugin-vuex-store-dev--e2e",
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "jest": "^25.5.4",
+    "jest-puppeteer": "^4.4.0",
+    "puppeteer": "^3.0.4"
+  },
+  "scripts": {
+    "vue-base": "node_modules/.bin/cross-env PAGE_TITLE=\"Base - No plugin\"",
+    "vue-nuxt": "node_modules/.bin/cross-env PAGE_TITLE=\"Base - No plugin\"",
+    "vue-plugin-imports-yes": "node_modules/.bin/cross-env PAGE_TITLE=\"Plugin - Imports - Yes\"",
+    "vue-plugin-imports-no": "node_modules/.bin/cross-env PAGE_TITLE=\"Plugin - Imports - No\"",
+    "vue-plugin-ts-imports-yes": "node_modules/.bin/cross-env PAGE_TITLE=\"Plugin - TS - Imports - Yes\"",
+    "vue-plugin-ts-imports-no": "node_modules/.bin/cross-env PAGE_TITLE=\"Plugin - TS - Imports - No\"",
+    "vue-plugin-ts-class-imports-yes": "node_modules/.bin/cross-env PAGE_TITLE=\"Plugin - TS - Class - Imports - Yes\"",
+    "vue-plugin-ts-class-imports-no": "node_modules/.bin/cross-env PAGE_TITLE=\"Plugin - TS - Class - Imports - No\"",
+    "test": "./node_modules/.bin/jest specs/"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

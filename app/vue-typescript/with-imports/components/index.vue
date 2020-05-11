@@ -5,22 +5,39 @@
     <h1>vue</h1>
     <h2>babel-plugin-vuex-store</h2>
 
-    <a href="javascript://" @click="incrementCounter(1)">
+    <a
+      class="link1"
+      href="javascript://"
+      @click="incrementCounter(1)">
       Increment Counter
     </a>
 
-    <a href="javascript://" @click="randomizeNumber">
+    <a
+      class="link2"
+      href="javascript://"
+      @click="randomizeNumber">
       Randomize Number
     </a>
 
-    <p>{{ counter || 0 }}</p>
-    <p>{{ counterMultiplied(2) || 0 }}</p>
-    <p>{{ countPowered || 0 }}</p>
+    <p class="p1-link1">
+      {{ counter || 0 }}
+    </p>
+    <p class="p2-link1">
+      {{ counterMultiplied(2) || 0 }}
+    </p>
+    <p class="p3-link1">
+      {{ countPowered || 0 }}
+    </p>
 
-    <p>root: {{ rootRandom || 0 }} vs nested: {{ nestedRandom || 0 }}</p>
-    <p>nested getter: {{ nestedRandomMultiplied(2) || 0 }}</p>
-
-    <p>Action Time: {{ actionTimeAlias }}</p>
+    <p class="p1-link2">
+      root: <span>{{ rootRandom || 0 }}</span> vs nested: <span>{{ nestedRandom || 0 }}</span>
+    </p>
+    <p class="p2-link2">
+      nested getter: <span>{{ nestedRandomMultiplied(2) || 0 }}</span>
+    </p>
+    <p class="p3-link2">
+      Action Time: <span>{{ actionTimeAlias }}</span>
+    </p>
   </center>
 </template>
 

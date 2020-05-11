@@ -35,7 +35,8 @@
   },
   "jest": {
     "transformIgnorePatterns": [
-      "node_modules"
+      "node_modules",
+      "test-e2e"
     ],
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
