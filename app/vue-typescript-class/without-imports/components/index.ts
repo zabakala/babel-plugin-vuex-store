@@ -7,7 +7,7 @@ import { NESTED_ACTIONS, NESTED_GETTERS } from '../../store/modules/counter/nest
 
 @Component({
     template: `
-      <center>
+      <center class="container">
         <logo />
 
         <h1>vue</h1>

@@ -1,5 +1,5 @@
 <template>
-  <center>
+  <center class="container">
     <logo />
 
     <h1>vue</h1>

@@ -1,28 +1,48 @@
 const express = require('express')
 const fs = require('fs')
 
-// app setup
-const app = express()
+class Server {
+  constructor () {
+    this.port = 8001
+    this.app = express()
+  }
 
-app.use(
-  express.static(
-    __dirname + '/../' + process.env.TARGET_DIR
-  )
-)
+  setStatic () {
+    this.app.use(
+        express.static(
+            __dirname + '/../' + process.env.STATIC
+        )
+    )
+  }
 
-// app port
-const port = 8001
+  setRoute () {
+    this.app.get('/', (req, res) => {
+      const regExp = new RegExp('([\s\.\/]*?'+ process.env.SCRIPT +'){1}(?=/)', 'g')
 
-// route
-app.get('/', (req, res) => {
-  // read content and alter path to final app file
-  let data = fs.readFileSync(__dirname + process.env.URL)
-  data = String(data).replace(new RegExp('(\.\.\/)*' + process.env.TARGET_DIR), '')
+      // read content and alter path to final app file afterwards
+      let data = fs.readFileSync(__dirname + process.env.FILE)
+      data = String(data).replace(regExp, '')
 
-  res.send(data)
-})
+      res.send(data)
+    })
+  }
 
-// listener
-app.listen(port, () => {
-  console.log('App listening on port', port)
-})
+  startUp () {
+    return new Promise((resolve, reject) => {
+      if (this.server) {
+        reject(new Error('Server is already running!'))
+      } else {
+        this.server = this.app.listen(this.port, () =>
+          resolve('App listening on port', this.port)
+        )
+      }
+    })
+  }
+
+  tearDown () {
+    this.server.close()
+    this.server = undefined
+  }
+}
+
+module.exports.Server = Server

@@ -13,30 +13,41 @@
 
       <div class="links">
         <a
-          @click="vxa_incrementCounter(1)"
+          class="link1 button--green"
           href="javascript:void(0)"
-          class="button--green"
+          @click="vxa_incrementCounter(1)"
         >
           Increment Counter
         </a>
         <a
-          @click="vxa_randomizeNumber"
+          class="link2 button--grey"
           href="javascript:void(0)"
-          class="button--grey"
+          @click="vxa_randomizeNumber"
         >
           Randomize Number
         </a>
       </div>
 
       <div>
-        <p>{{ vxg_counter || 0 }}</p>
-        <p>{{ vxg_counterMultiplied(2) || 0 }}</p>
-        <p>{{ vxs_countPowered || 0 }}</p>
+        <p class="p1-link1">
+          {{ vxg_counter || 0 }}
+        </p>
+        <p class="p2-link1">
+          {{ vxg_counterMultiplied(2) || 0 }}
+        </p>
+        <p class="p3-link1">
+          {{ vxs_countPowered || 0 }}
+        </p>
 
-        <p>root: {{ vxs_rootRandom || 0 }} vs nested: {{ vxs_nestedRandom || 0 }}</p>
-        <p>nested getter: {{ vxg_nestedRandomMultiplied(2) || 0 }}</p>
-
-        <p>Action Time: {{ vxs_alias }}</p>
+        <p class="p1-link2">
+          root: <span>{{ vxs_rootRandom || 0 }}</span> vs nested: <span>{{ vxs_nestedRandom || 0 }}</span>
+        </p>
+        <p class="p2-link2">
+          nested getter: <span>{{ vxg_nestedRandomMultiplied(2) || 0 }}</span>
+        </p>
+        <p class="p3-link2">
+          Action Time: <span>{{ vxs_alias }}</span>
+        </p>
       </div>
     </div>
   </div>

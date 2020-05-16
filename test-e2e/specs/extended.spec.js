@@ -3,13 +3,29 @@
  */
 
 const {
+  startUpServer,
   testDefaultReactivity,
   testProgressReactivity,
-  timeout
+  timeout,
+  waitForContainer
 } = require('../utils')
 
+let srv = undefined
+
 beforeAll(async () => {
-  await page.goto(URL, { waitUntil: 'domcontentloaded' })
+  srv = await startUpServer()
+
+  let url = process.env.FRAGMENT
+    ? URL + process.env.FRAGMENT
+    : URL
+
+  await page.reload({ waitUntil: ['networkidle0', 'domcontentloaded'] })
+  await page.goto(url, { waitUntil: 'domcontentloaded' })
+  await waitForContainer(page)
+})
+
+afterAll(async () => {
+  await srv.tearDown()
 })
 
 describe('Extended Tests - One Browser For All Verifications', () => {
