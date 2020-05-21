@@ -2,7 +2,7 @@ import { MutationTree } from 'vuex'
 import { COUNTER_MUTATIONS } from './_map'
 import { CounterState } from '../../../types'
 
-export const mutations: MutationTree<CounterState> = {
+const vxMutations: MutationTree<CounterState> = {
   [COUNTER_MUTATIONS.INCREMENT] (state, payload: number): void {
     state.count += payload
   },
@@ -19,3 +19,5 @@ export const mutations: MutationTree<CounterState> = {
     state.rootRandom = Math.random() * 1000 * payload
   },
 }
+
+export const mutations = vxMutations

@@ -1,6 +1,6 @@
 import { COUNTER_ACTIONS, COUNTER_MUTATIONS } from './_map'
 
-export const actions = {
+const vxActions = {
   [COUNTER_ACTIONS.INCREMENT] ({ commit, dispatch }, payload) {
     commit(COUNTER_MUTATIONS.INCREMENT, payload)
     dispatch(COUNTER_ACTIONS.INCREMENT_POWERED)
@@ -14,3 +14,5 @@ export const actions = {
     commit(COUNTER_MUTATIONS.RANDOMIZE, payload)
   },
 }
+
+export const actions = vxActions

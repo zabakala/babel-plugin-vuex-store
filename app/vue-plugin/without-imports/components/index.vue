@@ -8,35 +8,35 @@
     <a
       class="link1"
       href="javascript://"
-      @click="vxa_incrementCounter(1)">
+      @click="vxaIncrementCounter(1)">
       Increment Counter
     </a>
 
     <a
       class="link2"
       href="javascript://"
-      @click="vxa_randomizeNumber">
+      @click="vxaRandomizeNumber">
       Randomize Number
     </a>
 
     <p class="p1-link1">
-      {{ vxg_counter || 0 }}
+      {{ vxgCounter || 0 }}
     </p>
     <p class="p2-link1">
-      {{ vxg_counterMultiplied(2) || 0 }}
+      {{ vxgCounterMultiplied(2) || 0 }}
     </p>
     <p class="p3-link1">
-      {{ vxs_countPowered || 0 }}
+      {{ vxsCountPowered || 0 }}
     </p>
 
     <p class="p1-link2">
-      root: <span>{{ vxs_rootRandom || 0 }}</span> vs nested: <span>{{ vxs_nestedRandom || 0 }}</span>
+      root: <span>{{ vxsRootRandom || 0 }}</span> vs nested: <span>{{ vxsNestedRandom || 0 }}</span>
     </p>
     <p class="p2-link2">
-      nested getter: <span>{{ vxg_nestedRandomMultiplied(2) || 0 }}</span>
+      nested getter: <span>{{ vxgNestedRandomMultiplied(2) || 0 }}</span>
     </p>
     <p class="p3-link2">
-      Action Time: <span>{{ vxs_alias }}</span>
+      Action Time: <span>{{ vxsAlias }}</span>
     </p>
   </center>
 </template>
@@ -53,19 +53,19 @@
     },
 
     computed: {
-      vxs_alias: { actionTime: 'counter' },
-      vxs_countPowered: 'counter',
-      vxs_rootRandom: 'counter',
-      vxs_nestedRandom: 'counter/nested',
+      vxsAlias: { actionTime: 'counter' },
+      vxsCountPowered: 'counter',
+      vxsRootRandom: 'counter',
+      vxsNestedRandom: 'counter/nested',
 
-      vxg_counter: COUNTER_GETTERS.TOTAL,
-      vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
-      vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
+      vxgCounter: COUNTER_GETTERS.TOTAL,
+      vxgCounterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+      vxgNestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
     },
 
     methods: {
-      vxa_incrementCounter: () => COUNTER_ACTIONS.INCREMENT,
-      vxa_randomizeNumber: () => NESTED_ACTIONS.RANDOMIZE,
+      vxaIncrementCounter: () => COUNTER_ACTIONS.INCREMENT,
+      vxaRandomizeNumber: () => NESTED_ACTIONS.RANDOMIZE,
     }
   }
 </script>

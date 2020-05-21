@@ -6,27 +6,28 @@ export const state = () => ({
   nestedRandom: 0,
 })
 
-export const actions = {
+const vxActions = {
   [NESTED_ACTIONS.RANDOMIZE] ({ commit, rootCommit, rootDispatch }) {
     commit(NESTED_MUTATIONS.RANDOMIZE)
     rootCommit(COUNTER_MUTATIONS.SET_TIME)
     rootDispatch(COUNTER_ACTIONS.RANDOMIZE, 3)
-
-    // unit tests
-    // - toCamelCase
-    // - addCamelCaseValueToSnakeCaseKey
-    // split main plugin file into smaller logical blocks/files
   },
 }
 
-export const mutations = {
+export const actions = vxActions
+
+const vxMutations = {
   [NESTED_MUTATIONS.RANDOMIZE] (state) {
     state.nestedRandom = Math.random() * 1000
   },
 }
 
-export const getters = {
+export const mutations = vxMutations
+
+const vxGetters = {
   [NESTED_GETTERS.RANDOM_MULTIPLIED]: (state) => (multiplier) => {
     return state.nestedRandom * multiplier
   },
 }
+
+export const getters = vxGetters

@@ -158,9 +158,10 @@ const visitor = (t) => ({
 
   Identifier (path) {
     if (
-        [STR_ACTIONS, STR_MUTATIONS, STR_GETTERS].includes(path.node.name) &&
-        t.isVariableDeclarator(path.parent)
+        [STR_ACTIONS, STR_MUTATIONS, STR_GETTERS].includes(path.node.name)
     ) {
+      if (!path.parentPath.node.init.properties) return
+
       path.parentPath.node.init.properties.forEach((node) => {
         /* istanbul ignore else  */
         if (t.isMemberExpression(node.key)) {

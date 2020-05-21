@@ -1,6 +1,6 @@
 import { COUNTER_GETTERS } from './_map'
 
-export const getters = {
+const vxGetters = {
   [COUNTER_GETTERS.TOTAL] (state) {
     return state.count
   },
@@ -9,3 +9,5 @@ export const getters = {
     return state.count * multiplier
   },
 }
+
+export const getters = vxGetters

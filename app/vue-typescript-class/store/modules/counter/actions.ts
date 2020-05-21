@@ -3,7 +3,7 @@ import { COUNTER_ACTIONS, COUNTER_MUTATIONS } from './_map'
 
 import { CounterState } from '../../../types'
 
-export const actions: ActionTree<CounterState, any> = {
+const vxActions: ActionTree<CounterState, any> = {
   [COUNTER_ACTIONS.INCREMENT] ({ commit, dispatch }, payload) {
     commit(COUNTER_MUTATIONS.INCREMENT, payload)
     dispatch(COUNTER_ACTIONS.INCREMENT_POWERED)
@@ -17,3 +17,5 @@ export const actions: ActionTree<CounterState, any> = {
     commit(COUNTER_MUTATIONS.RANDOMIZE, payload)
   },
 }
+
+export const actions = vxActions

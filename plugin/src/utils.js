@@ -204,9 +204,10 @@ module.exports.getSpreadStateMapping = (t, mappingType, name, value) => {
     name = props.key.name
   }
 
-  name.includes(ABBR_VX_STT) && (
-      name = name.split(ABBR_VX_STT)[1]
-  )
+  if (name.includes(ABBR_VX_STT)) {
+    name = name.split(ABBR_VX_STT)[1]
+    name = name.charAt(0).toLowerCase() + name.substr(1)
+  }
 
   return t.spreadElement(
       t.callExpression(

@@ -1,6 +1,6 @@
 import { COUNTER_MUTATIONS } from './_map'
 
-export const mutations = {
+const vxMutations = {
   [COUNTER_MUTATIONS.INCREMENT] (state, payload) {
     state.count += payload
   },
@@ -17,3 +17,5 @@ export const mutations = {
     state.rootRandom = Math.random() * 1000 * payload
   },
 }
+
+export const mutations = vxMutations

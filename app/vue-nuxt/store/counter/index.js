@@ -7,7 +7,7 @@ export const state = () => ({
   rootRandom: 0,
 })
 
-export const actions = {
+const vxActions = {
   [COUNTER_ACTIONS.INCREMENT] ({ commit, dispatch }, payload) {
     commit(COUNTER_MUTATIONS.INCREMENT, payload)
     dispatch(COUNTER_ACTIONS.INCREMENT_POWERED)
@@ -22,7 +22,9 @@ export const actions = {
   },
 }
 
-export const mutations = {
+export const actions = vxActions
+
+const vxMutations = {
   [COUNTER_MUTATIONS.INCREMENT] (state, payload) {
     state.count += payload
   },
@@ -40,7 +42,9 @@ export const mutations = {
   },
 }
 
-export const getters = {
+export const mutations = vxMutations
+
+const vxGetters = {
   [COUNTER_GETTERS.TOTAL] (state) {
     return state.count
   },
@@ -49,3 +53,5 @@ export const getters = {
     return state.count * multiplier
   },
 }
+
+export const getters = vxGetters

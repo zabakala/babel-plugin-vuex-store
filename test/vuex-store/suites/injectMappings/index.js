@@ -20,7 +20,7 @@ module.exports.injectMappings = [
     code: `
       export default {
         methods: {
-          vxa_incrementCounter: () => COUNTER_ACTIONS.INCREMENT
+          vxaIncrementCounter: () => COUNTER_ACTIONS.INCREMENT
         }
       };
     `,
@@ -31,7 +31,7 @@ module.exports.injectMappings = [
       export default {
         methods: {
           ...mapActions({
-            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT
+            vxaIncrementCounter: COUNTER_ACTIONS.INCREMENT
           })
         }
       };
@@ -49,9 +49,9 @@ module.exports.injectMappings = [
     code: `
       export default {
         methods: {
-          vxa_incrementCounter: () => COUNTER_ACTIONS.INCREMENT,
-          vxa_incrementCounter: () => { return COUNTER_ACTIONS.INCREMENT },
-          vxa_randomizeNumber () { return NESTED_ACTIONS.RANDOMIZE }
+          vxaIncrementCounter: () => COUNTER_ACTIONS.INCREMENT,
+          vxaIncrementCounter: () => { return COUNTER_ACTIONS.INCREMENT },
+          vxaRandomizeNumber () { return NESTED_ACTIONS.RANDOMIZE }
         }
       };
     `,
@@ -62,9 +62,9 @@ module.exports.injectMappings = [
       export default {
         methods: {
           ...mapActions({
-            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
-            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
-            vxa_randomizeNumber: NESTED_ACTIONS.RANDOMIZE
+            vxaIncrementCounter: COUNTER_ACTIONS.INCREMENT,
+            vxaIncrementCounter: COUNTER_ACTIONS.INCREMENT,
+            vxaRandomizeNumber: NESTED_ACTIONS.RANDOMIZE
           })
         }
       };
@@ -83,10 +83,10 @@ module.exports.injectMappings = [
       export default {
         methods: {
           test() {},
-          vxa_incrementCounter: () => COUNTER_ACTIONS.INCREMENT,
-          vxa_incrementCounter: () => { return COUNTER_ACTIONS.INCREMENT },
+          vxaIncrementCounter: () => COUNTER_ACTIONS.INCREMENT,
+          vxaIncrementCounter: () => { return COUNTER_ACTIONS.INCREMENT },
           test() {},
-          vxa_randomizeNumber () { return NESTED_ACTIONS.RANDOMIZE },
+          vxaRandomizeNumber () { return NESTED_ACTIONS.RANDOMIZE },
           test() {}
         }
       };
@@ -102,9 +102,9 @@ module.exports.injectMappings = [
           test() {},
           
           ...mapActions({
-            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
-            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
-            vxa_randomizeNumber: NESTED_ACTIONS.RANDOMIZE
+            vxaIncrementCounter: COUNTER_ACTIONS.INCREMENT,
+            vxaIncrementCounter: COUNTER_ACTIONS.INCREMENT,
+            vxaRandomizeNumber: NESTED_ACTIONS.RANDOMIZE
           })
         }
       };
@@ -125,10 +125,10 @@ module.exports.injectMappings = [
       let cmp = Component({
         methods: {
           test() {},
-          vxa_incrementCounter: () => COUNTER_ACTIONS.INCREMENT,
-          vxa_incrementCounter: () => { return COUNTER_ACTIONS.INCREMENT },
+          vxaIncrementCounter: () => COUNTER_ACTIONS.INCREMENT,
+          vxaIncrementCounter: () => { return COUNTER_ACTIONS.INCREMENT },
           test() {},
-          vxa_randomizeNumber () { return NESTED_ACTIONS.RANDOMIZE },
+          vxaRandomizeNumber () { return NESTED_ACTIONS.RANDOMIZE },
           test() {}
         }
       });
@@ -144,9 +144,9 @@ module.exports.injectMappings = [
           test() {},
           
           ...mapActions({
-            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
-            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
-            vxa_randomizeNumber: NESTED_ACTIONS.RANDOMIZE
+            vxaIncrementCounter: COUNTER_ACTIONS.INCREMENT,
+            vxaIncrementCounter: COUNTER_ACTIONS.INCREMENT,
+            vxaRandomizeNumber: NESTED_ACTIONS.RANDOMIZE
           })
         }
       });
@@ -167,7 +167,7 @@ module.exports.injectMappings = [
     code: `
       export default {
         computed: {
-          vxg_counter: COUNTER_GETTERS.TOTAL
+          vxgCounter: COUNTER_GETTERS.TOTAL
         }
       };
     `,
@@ -178,7 +178,7 @@ module.exports.injectMappings = [
       export default {
         computed: {
           ...mapGetters({
-            vxg_counter: COUNTER_GETTERS.TOTAL
+            vxgCounter: COUNTER_GETTERS.TOTAL
           })
         }
       };
@@ -196,9 +196,9 @@ module.exports.injectMappings = [
     code: `
       export default {
         computed: {
-          vxg_counter: COUNTER_GETTERS.TOTAL,
-          vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
-          vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
+          vxgCounter: COUNTER_GETTERS.TOTAL,
+          vxgCounterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+          vxgNestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
         }
       };
     `,
@@ -209,9 +209,9 @@ module.exports.injectMappings = [
       export default {
         computed: {
           ...mapGetters({
-            vxg_counter: COUNTER_GETTERS.TOTAL,
-            vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
-            vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
+            vxgCounter: COUNTER_GETTERS.TOTAL,
+            vxgCounterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+            vxgNestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
           })
         }
       };
@@ -230,10 +230,10 @@ module.exports.injectMappings = [
       export default {
         computed: {
           test() {},
-          vxg_counter: COUNTER_GETTERS.TOTAL,
-          vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+          vxgCounter: COUNTER_GETTERS.TOTAL,
+          vxgCounterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
           test() {},
-          vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
+          vxgNestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
           test() {}
         }
       };
@@ -249,9 +249,9 @@ module.exports.injectMappings = [
           test() {},
           
           ...mapGetters({
-            vxg_counter: COUNTER_GETTERS.TOTAL,
-            vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
-            vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
+            vxgCounter: COUNTER_GETTERS.TOTAL,
+            vxgCounterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+            vxgNestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
           })
         }
       };
@@ -272,7 +272,7 @@ module.exports.injectMappings = [
       let cmp = Component({
         computed: {
           test: 1,
-          vxg_counter: COUNTER_GETTERS.TOTAL,
+          vxgCounter: COUNTER_GETTERS.TOTAL,
           test: 1
         }
       });
@@ -287,7 +287,7 @@ module.exports.injectMappings = [
           test: 1,
           
           ...mapGetters({
-            vxg_counter: COUNTER_GETTERS.TOTAL
+            vxgCounter: COUNTER_GETTERS.TOTAL
           })
         }
       });
@@ -308,7 +308,7 @@ module.exports.injectMappings = [
     code: `
       export default {
         computed: {
-          vxs_actionTime: 'counter'
+          vxsActionTime: 'counter'
         }
       };
     `,
@@ -319,7 +319,7 @@ module.exports.injectMappings = [
       export default {
         computed: {
           ...mapState("counter", {
-            vxs_actionTime: "actionTime"
+            vxsActionTime: "actionTime"
           })
         }
       };
@@ -337,9 +337,9 @@ module.exports.injectMappings = [
     code: `
       export default {
         computed: {
-          vxs_actionTime: 'counter',
-          vxs_countPowered: 'counter',
-          vxs_nestedRandom: 'counter/nested'
+          vxsActionTime: 'counter',
+          vxsCountPowered: 'counter',
+          vxsNestedRandom: 'counter/nested'
         }
       };
     `,
@@ -350,15 +350,15 @@ module.exports.injectMappings = [
       export default {
         computed: {
           ...mapState("counter", {
-            vxs_actionTime: "actionTime"
+            vxsActionTime: "actionTime"
           }),
           
           ...mapState("counter", {
-            vxs_countPowered: "countPowered"
+            vxsCountPowered: "countPowered"
           }),
           
           ...mapState("counter/nested", {
-            vxs_nestedRandom: "nestedRandom"
+            vxsNestedRandom: "nestedRandom"
           })
         }
       };
@@ -377,10 +377,10 @@ module.exports.injectMappings = [
       export default {
         computed: {
           test: 1,
-          vxs_alias: { actionTime: 'counter' },
-          vxs_countPowered: 'counter',
+          vxsAlias: { actionTime: 'counter' },
+          vxsCountPowered: 'counter',
           test: 1,
-          vxs_nestedRandom: 'counter/nested',
+          vxsNestedRandom: 'counter/nested',
           test: 1
         }
       };
@@ -396,15 +396,15 @@ module.exports.injectMappings = [
           test: 1,
           
           ...mapState("counter", {
-            vxs_alias: "actionTime"
+            vxsAlias: "actionTime"
           }),
           
           ...mapState("counter", {
-            vxs_countPowered: "countPowered"
+            vxsCountPowered: "countPowered"
           }),
           
           ...mapState("counter/nested", {
-            vxs_nestedRandom: "nestedRandom"
+            vxsNestedRandom: "nestedRandom"
           })
         }
       };
@@ -425,10 +425,10 @@ module.exports.injectMappings = [
       let cmp = Component({
         computed: {
           test: 1,
-          vxs_aliasFoo: () => ({ actionTime: 'counter' }),
-          vxs_countPowered: () => 'counter',
+          vxsAliasFoo: () => ({ actionTime: 'counter' }),
+          vxsCountPowered: () => 'counter',
           test: 1,
-          vxs_nestedRandom: () => 'counter/nested',
+          vxsNestedRandom: () => 'counter/nested',
           test: 1
         }
       });
@@ -444,15 +444,15 @@ module.exports.injectMappings = [
           test: 1,
           
           ...mapState("counter", {
-            vxs_aliasFoo: "actionTime"
+            vxsAliasFoo: "actionTime"
           }),
           
           ...mapState("counter", {
-            vxs_countPowered: "countPowered"
+            vxsCountPowered: "countPowered"
           }),
           
           ...mapState("counter/nested", {
-            vxs_nestedRandom: "nestedRandom"
+            vxsNestedRandom: "nestedRandom"
           })
         }
       });
@@ -473,24 +473,24 @@ module.exports.injectMappings = [
       export default {
         computed: {
           test: 1,
-          vxs_alias: { actionTime: 'counter' },
-          vxs_countPowered: 'counter',
+          vxsAlias: { actionTime: 'counter' },
+          vxsCountPowered: 'counter',
           test: 1,
-          vxs_nestedRandom: 'counter/nested',
+          vxsNestedRandom: 'counter/nested',
           test() {},
-          vxg_counter: COUNTER_GETTERS.TOTAL,
-          vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+          vxgCounter: COUNTER_GETTERS.TOTAL,
+          vxgCounterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
           test() {},
-          vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
+          vxgNestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
           test() {}
         },
         
         methods: {
           test() {},
-          vxa_incrementCounter: () => COUNTER_ACTIONS.INCREMENT,
-          vxa_incrementCounter: () => { return COUNTER_ACTIONS.INCREMENT },
+          vxaIncrementCounter: () => COUNTER_ACTIONS.INCREMENT,
+          vxaIncrementCounter: () => { return COUNTER_ACTIONS.INCREMENT },
           test() {},
-          vxa_randomizeNumber () { return NESTED_ACTIONS.RANDOMIZE },
+          vxaRandomizeNumber () { return NESTED_ACTIONS.RANDOMIZE },
           test() {}
         }
       };
@@ -508,21 +508,21 @@ module.exports.injectMappings = [
           test() {},
           
           ...mapGetters({
-            vxg_counter: COUNTER_GETTERS.TOTAL,
-            vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
-            vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
+            vxgCounter: COUNTER_GETTERS.TOTAL,
+            vxgCounterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+            vxgNestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
           }),
           
           ...mapState("counter", {
-            vxs_alias: "actionTime"
+            vxsAlias: "actionTime"
           }),
           
           ...mapState("counter", {
-            vxs_countPowered: "countPowered"
+            vxsCountPowered: "countPowered"
           }),
           
           ...mapState("counter/nested", {
-            vxs_nestedRandom: "nestedRandom"
+            vxsNestedRandom: "nestedRandom"
           })
         },
         
@@ -532,9 +532,9 @@ module.exports.injectMappings = [
           test() {},
           
           ...mapActions({
-            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
-            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
-            vxa_randomizeNumber: NESTED_ACTIONS.RANDOMIZE
+            vxaIncrementCounter: COUNTER_ACTIONS.INCREMENT,
+            vxaIncrementCounter: COUNTER_ACTIONS.INCREMENT,
+            vxaRandomizeNumber: NESTED_ACTIONS.RANDOMIZE
           })
         }
       };
@@ -553,24 +553,24 @@ module.exports.injectMappings = [
       let cmp = Component({
         computed: {
           test: 1,
-          vxs_alias: () => ({ actionTime: 'counter' }),
-          vxs_countPowered: () => 'counter',
+          vxsAlias: () => ({ actionTime: 'counter' }),
+          vxsCountPowered: () => 'counter',
           test: 1,
-          vxs_nestedRandom: () => 'counter/nested',
+          vxsNestedRandom: () => 'counter/nested',
           test() {},
-          vxg_counter: COUNTER_GETTERS.TOTAL,
-          vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+          vxgCounter: COUNTER_GETTERS.TOTAL,
+          vxgCounterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
           test() {},
-          vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
+          vxgNestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
           test() {}
         },
         
         methods: {
           test() {},
-          vxa_incrementCounter: () => COUNTER_ACTIONS.INCREMENT,
-          vxa_incrementCounter: () => { return COUNTER_ACTIONS.INCREMENT },
+          vxaIncrementCounter: () => COUNTER_ACTIONS.INCREMENT,
+          vxaIncrementCounter: () => { return COUNTER_ACTIONS.INCREMENT },
           test() {},
-          vxa_randomizeNumber () { return NESTED_ACTIONS.RANDOMIZE },
+          vxaRandomizeNumber () { return NESTED_ACTIONS.RANDOMIZE },
           test() {}
         }
       });
@@ -588,21 +588,21 @@ module.exports.injectMappings = [
           test() {},
           
           ...mapGetters({
-            vxg_counter: COUNTER_GETTERS.TOTAL,
-            vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
-            vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
+            vxgCounter: COUNTER_GETTERS.TOTAL,
+            vxgCounterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+            vxgNestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
           }),
           
           ...mapState("counter", {
-            vxs_alias: "actionTime"
+            vxsAlias: "actionTime"
           }),
           
           ...mapState("counter", {
-            vxs_countPowered: "countPowered"
+            vxsCountPowered: "countPowered"
           }),
           
           ...mapState("counter/nested", {
-            vxs_nestedRandom: "nestedRandom"
+            vxsNestedRandom: "nestedRandom"
           })
         },
         
@@ -612,9 +612,9 @@ module.exports.injectMappings = [
           test() {},
           
           ...mapActions({
-            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
-            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT,
-            vxa_randomizeNumber: NESTED_ACTIONS.RANDOMIZE
+            vxaIncrementCounter: COUNTER_ACTIONS.INCREMENT,
+            vxaIncrementCounter: COUNTER_ACTIONS.INCREMENT,
+            vxaRandomizeNumber: NESTED_ACTIONS.RANDOMIZE
           })
         }
       });
@@ -636,16 +636,16 @@ module.exports.injectMappings = [
       export default {
         computed: {
           test() {},
-          vxg_counter: COUNTER_GETTERS.TOTAL,
-          vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+          vxgCounter: COUNTER_GETTERS.TOTAL,
+          vxgCounterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
           test() {},
-          vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
+          vxgNestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
           test() {}
         },
         
         methods: {
           test() {},
-          vxa_incrementCounter: () => COUNTER_ACTIONS.INCREMENT
+          vxaIncrementCounter: () => COUNTER_ACTIONS.INCREMENT
         }
       };
     `,
@@ -660,9 +660,9 @@ module.exports.injectMappings = [
           test() {},
           
           ...mapGetters({
-            vxg_counter: COUNTER_GETTERS.TOTAL,
-            vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
-            vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
+            vxgCounter: COUNTER_GETTERS.TOTAL,
+            vxgCounterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+            vxgNestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
           })
         },
         
@@ -670,7 +670,7 @@ module.exports.injectMappings = [
           test() {},
           
           ...mapActions({
-            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT
+            vxaIncrementCounter: COUNTER_ACTIONS.INCREMENT
           })
         }
       };
@@ -689,16 +689,16 @@ module.exports.injectMappings = [
       export default {
         computed: {
           test() {},
-          vxg_counter: COUNTER_GETTERS.TOTAL,
-          vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+          vxgCounter: COUNTER_GETTERS.TOTAL,
+          vxgCounterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
           test() {},
-          vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
+          vxgNestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
           test() {}
         },
         
         methods: {
           test() {},
-          vxa_incrementCounter: () => COUNTER_ACTIONS.INCREMENT
+          vxaIncrementCounter: () => COUNTER_ACTIONS.INCREMENT
         }
       };
     `,
@@ -713,9 +713,9 @@ module.exports.injectMappings = [
           test() {},
           
           ...mapGetters({
-            vxg_counter: COUNTER_GETTERS.TOTAL,
-            vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
-            vxg_nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
+            vxgCounter: COUNTER_GETTERS.TOTAL,
+            vxgCounterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
+            vxgNestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED
           })
         },
         
@@ -723,7 +723,7 @@ module.exports.injectMappings = [
           test() {},
           
           ...mapActions({
-            vxa_incrementCounter: COUNTER_ACTIONS.INCREMENT
+            vxaIncrementCounter: COUNTER_ACTIONS.INCREMENT
           })
         }
       };
@@ -742,8 +742,8 @@ module.exports.injectMappings = [
       
       let cmp = Component({
         computed: {
-          vxs_alias: () => ({ actionTime: 'counter' }),
-          vxg_counter: COUNTER_GETTERS.TOTAL
+          vxsAlias: () => ({ actionTime: 'counter' }),
+          vxgCounter: COUNTER_GETTERS.TOTAL
         }
       });
     `,
@@ -754,11 +754,11 @@ module.exports.injectMappings = [
       let cmp = Component({
         computed: {
           ...mapGetters({
-            vxg_counter: COUNTER_GETTERS.TOTAL
+            vxgCounter: COUNTER_GETTERS.TOTAL
           }),
           
           ...mapState("counter", {
-            vxs_alias: "actionTime"
+            vxsAlias: "actionTime"
           })
         }
       });
@@ -777,8 +777,8 @@ module.exports.injectMappings = [
       
       let cmp = Component({
         computed: {
-          vxs_alias: () => ({ actionTime: 'counter' }),
-          vxg_counter: COUNTER_GETTERS.TOTAL
+          vxsAlias: () => ({ actionTime: 'counter' }),
+          vxgCounter: COUNTER_GETTERS.TOTAL
         }
       });
     `,
@@ -789,11 +789,11 @@ module.exports.injectMappings = [
       let cmp = Component({
         computed: {
           ...mapGetters({
-            vxg_counter: COUNTER_GETTERS.TOTAL
+            vxgCounter: COUNTER_GETTERS.TOTAL
           }),
           
           ...mapState("counter", {
-            vxs_alias: "actionTime"
+            vxsAlias: "actionTime"
           })
         }
       });

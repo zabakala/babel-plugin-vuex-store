@@ -2,7 +2,7 @@ import { GetterTree } from 'vuex'
 import { COUNTER_GETTERS } from './_map'
 import { CounterState } from '../../../types'
 
-export const getters: GetterTree<CounterState, any> = {
+const vxGetters: GetterTree<CounterState, any> = {
   [COUNTER_GETTERS.TOTAL] (state): number {
     return state.count
   },
@@ -11,3 +11,5 @@ export const getters: GetterTree<CounterState, any> = {
     return state.count * multiplier
   },
 }
+
+export const getters = vxGetters
