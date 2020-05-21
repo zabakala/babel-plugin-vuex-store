@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.com/zabakala/babel-plugin-vuex-store.svg?token=qRgvpnpesqLQasVDw5sN&branch=master)](https://travis-ci.com/zabakala/babel-plugin-vuex-store)
 [![codecov](https://codecov.io/gh/zabakala/babel-plugin-vuex-store/branch/master/graph/badge.svg?token=JH6HQI0UUB)](https://codecov.io/gh/zabakala/babel-plugin-vuex-store)
 
-**Babel-Plugin-Vuex-Store** packs along a couple of features to simplify your Vuex-related coding.
+**Babel-Plugin-Vuex-Store** (shortly **vx** for Vuex) packs along a couple of features to simplify your Vuex-related coding.
 </div>
 
 
@@ -88,22 +88,35 @@ export const NESTED_GETTERS = {
 }
 ```
 
-To make it all possible, the only requirement is sticking to the following suffix naming convention when defining your actions, mutations or getters:
+To make it all possible, the only requirements are:
+**1** - sticking to a naming convention when defining your actions, mutations or getters schema:
 - _ACTIONS
 - _MUTATIONS
 - _GETTERS
 
 i.e.:
 
-export const COUNTER **_ACTIONS** = { ... }<br>
-export const COUNTER **_MUTATIONS** = { ... }<br>
-export const COUNTER **_GETTERS** = { ... }
+- export const COUNTER **_ACTIONS** = { ... }<br>
+- export const COUNTER **_MUTATIONS** = { ... }<br>
+- export const COUNTER **_GETTERS** = { ... }
+
+**2** - sticking to a naming convention when defining the implementation body of your actions, mutations or getters:
+
+- vxActions
+- vxMutations
+- vxGetters
+
+i.e.:
+
+- export const **vx**Actions = { ... }<br>
+- export const **vx**Mutations = { ... }<br>
+- export const **vx**Getters = { ... }
 
 You can then do your imports within your store without a need to do any module name-spacing stuff, just:
 ```sh
 import { COUNTER_ACTIONS, COUNTER_MUTATIONS } from '...'
 
-export const actions = {
+export const vxActions = {
   [COUNTER_ACTIONS.INCREMENT] ({ commit }, payload) {
     commit(COUNTER_MUTATIONS.INCREMENT, payload)
   }
@@ -113,7 +126,7 @@ export const actions = {
 ```sh
 import { COUNTER_MUTATIONS } from '...'
 
-export const mutations = {
+export const vxMutations = {
   [COUNTER_MUTATIONS.INCREMENT] (state, payload) {
     state.count += payload
   }
@@ -123,7 +136,7 @@ export const mutations = {
 ```sh
 import { COUNTER_GETTERS } from '...'
 
-export const getters = {
+export const vxGetters = {
   [COUNTER_GETTERS.TOTAL] (state) {
     return state.count
   }
@@ -176,7 +189,7 @@ import { NESTED_ACTIONS } from './actions';
 import { COUNTER_ACTIONS } from '../actions';
 import { COUNTER_MUTATIONS } from '../mutations';
 
-export const actions = {
+export const vxActions = {
     [NESTED_ACTIONS.INCREMENT] ({ rootCommit, rootDispatch }, payload) {
       rootCommit(COUNTER_MUTATIONS.SET_TIME_X);
       rootCommit(COUNTER_MUTATIONS.SET_TIME_Y, Date.now());
@@ -191,9 +204,9 @@ Is it not a lot nicer and less verbose?
 Guess what, let's simplify it even more. Looking at the _example_template.vue_ component above, you have to import _mapState_, _mapActions_ and _mapGetters_ to get Vuex things going. But the plugin makes it possible to do without these imports.
 
 Just meet your new prefix friends:
-- **vxs_** to represent Vuex state 
-- **vxa_** to represent Vuex actions 
-- **vxg_** to represent Vuex getters 
+- **vxs** to represent Vuex state 
+- **vxa** to represent Vuex actions 
+- **vxg** to represent Vuex getters 
 
 Take a look at the same component without the imports:
 
@@ -204,14 +217,14 @@ Take a look at the same component without the imports:
     </a>
 
     <p>
-        {{ vxg_counter }}
-        {{ vxg_counterMultiplied(2) }}
+        {{ vxgCounter }}
+        {{ vxgCounterMultiplied(2) }}
     </p>
 
     <p>
-        {{ vxs_alias }} 
-        {{ vxs_countBasic }} 
-        {{ vxs_countNested }}</p>
+        {{ vxsAlias }} 
+        {{ vxsCountBasic }} 
+        {{ vxsCountNested }}</p>
     </p>
   </center>
 </template>
@@ -224,16 +237,16 @@ Take a look at the same component without the imports:
 
   export default {
     computed: {
-      vxs_alias: { otherCount: 'counter' },
-      vxs_countBasic: 'counter',
-      vxs_countNested: 'counter/nested',
+      vxsAlias: { otherCount: 'counter' },
+      vxsCountBasic: 'counter',
+      vxsCountNested: 'counter/nested',
 
-      vxg_counter: COUNTER_GETTERS.TOTAL,
-      vxg_counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED
+      vxgCounter: COUNTER_GETTERS.TOTAL,
+      vxgCounterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED
     },
 
     methods: {
-      vxa_incrementCounter: () => COUNTER_ACTIONS.INCREMENT
+      vxaIncrementCounter: () => COUNTER_ACTIONS.INCREMENT
     }
   }
 </script>
