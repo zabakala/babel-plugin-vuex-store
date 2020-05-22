@@ -1,5 +1,5 @@
-import { NESTED_ACTIONS, NESTED_GETTERS, NESTED_MUTATIONS } from './_map'
-import { COUNTER_ACTIONS, COUNTER_MUTATIONS } from '../_map'
+import { VX_NESTED_ACTIONS, VX_NESTED_GETTERS, VX_NESTED_MUTATIONS } from './_map'
+import { VX_COUNTER_ACTIONS, VX_COUNTER_MUTATIONS } from '../_map'
 
 export const state = () => ({
   nestedCount: 0,
@@ -7,17 +7,17 @@ export const state = () => ({
 })
 
 const vxActions = {
-  [NESTED_ACTIONS.RANDOMIZE] ({ commit, rootCommit, rootDispatch }) {
-    commit(NESTED_MUTATIONS.RANDOMIZE)
-    rootCommit(COUNTER_MUTATIONS.SET_TIME)
-    rootDispatch(COUNTER_ACTIONS.RANDOMIZE, 3)
+  [VX_NESTED_ACTIONS.RANDOMIZE] ({ commit, rootCommit, rootDispatch }) {
+    commit(VX_NESTED_MUTATIONS.RANDOMIZE)
+    rootCommit(VX_COUNTER_MUTATIONS.SET_TIME)
+    rootDispatch(VX_COUNTER_ACTIONS.RANDOMIZE, 3)
   },
 }
 
 export const actions = vxActions
 
 const vxMutations = {
-  [NESTED_MUTATIONS.RANDOMIZE] (state) {
+  [VX_NESTED_MUTATIONS.RANDOMIZE] (state) {
     state.nestedRandom = Math.random() * 1000
   },
 }
@@ -25,7 +25,7 @@ const vxMutations = {
 export const mutations = vxMutations
 
 const vxGetters = {
-  [NESTED_GETTERS.RANDOM_MULTIPLIED]: (state) => (multiplier) => {
+  [VX_NESTED_GETTERS.RANDOM_MULTIPLIED]: (state) => (multiplier) => {
     return state.nestedRandom * multiplier
   },
 }

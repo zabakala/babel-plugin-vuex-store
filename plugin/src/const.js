@@ -10,9 +10,7 @@ module.exports.STR_DISPATCH = 'dispatch'
 module.exports.STR_ROOT_COMMIT = 'rootCommit'
 module.exports.STR_ROOT_DISPATCH = 'rootDispatch'
 
-module.exports.SUFFIX_ACTIONS = '_ACTIONS'
-module.exports.SUFFIX_MUTATIONS = '_MUTATIONS'
-module.exports.SUFFIX_GETTERS = '_GETTERS'
+module.exports.STORE_PREFIX = 'VX_'
 
 module.exports.STR_COMPUTED = 'computed'
 module.exports.STR_METHODS = 'methods'

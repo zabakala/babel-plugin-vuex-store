@@ -1,7 +1,7 @@
-import { NESTED_MUTATIONS } from './_map'
+import { VX_NESTED_MUTATIONS } from './_map'
 
 const vxMutations = {
-  [NESTED_MUTATIONS.RANDOMIZE] (state) {
+  [VX_NESTED_MUTATIONS.RANDOMIZE] (state) {
     state.nestedRandom = Math.random() * 1000
   },
 }

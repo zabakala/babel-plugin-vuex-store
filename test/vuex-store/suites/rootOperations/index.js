@@ -8,37 +8,37 @@ module.exports.rootOperations = [
     `,
 
     code: `
-      import { COUNTER_MUTATIONS } from '../mutations';
-      import { NESTED_MUTATIONS } from './mutations';
+      import { VX_COUNTER_MUTATIONS } from '../mutations';
+      import { VX_NESTED_MUTATIONS } from './mutations';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: ["counter", "nested"]
       };
 
       export const vxActions = {
-        [NESTED_ACTIONS.INCREMENT] ({ commit, rootCommit }, payload) {
-          commit(NESTED_MUTATIONS.INCREMENT, payload);
+        [VX_NESTED_ACTIONS.INCREMENT] ({ commit, rootCommit }, payload) {
+          commit(VX_NESTED_MUTATIONS.INCREMENT, payload);
 
-          rootCommit(COUNTER_MUTATIONS.SET_TIME);
-          rootCommit(COUNTER_MUTATIONS.SET_TIME, Date.now());
+          rootCommit(VX_COUNTER_MUTATIONS.SET_TIME);
+          rootCommit(VX_COUNTER_MUTATIONS.SET_TIME, Date.now());
         }
       };
     `,
 
     output: formatResult(`
-      import { COUNTER_MUTATIONS } from '../mutations';
-      import { NESTED_MUTATIONS } from './mutations';
+      import { VX_COUNTER_MUTATIONS } from '../mutations';
+      import { VX_NESTED_MUTATIONS } from './mutations';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: "counter/nested/increment"
       };
 
       export const vxActions = {
-        [NESTED_ACTIONS.INCREMENT.substr(NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ commit }, payload) {
-          commit(NESTED_MUTATIONS.INCREMENT.substr(NESTED_MUTATIONS.INCREMENT.lastIndexOf("/") + 1), payload);
+        [VX_NESTED_ACTIONS.INCREMENT.substr(VX_NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ commit }, payload) {
+          commit(VX_NESTED_MUTATIONS.INCREMENT.substr(VX_NESTED_MUTATIONS.INCREMENT.lastIndexOf("/") + 1), payload);
 
-          commit(COUNTER_MUTATIONS.SET_TIME, null, { root: true });
-          commit(COUNTER_MUTATIONS.SET_TIME, Date.now(), { root: true });
+          commit(VX_COUNTER_MUTATIONS.SET_TIME, null, { root: true });
+          commit(VX_COUNTER_MUTATIONS.SET_TIME, Date.now(), { root: true });
         }
       };
     `)
@@ -52,19 +52,19 @@ module.exports.rootOperations = [
     `,
 
     code: `
-      import { COUNTER_MUTATIONS } from '../mutations';
-      import { NESTED_MUTATIONS } from './mutations';
+      import { VX_COUNTER_MUTATIONS } from '../mutations';
+      import { VX_NESTED_MUTATIONS } from './mutations';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: ["counter", "nested"]
       };
 
       const vxActions = {
-        [NESTED_ACTIONS.INCREMENT] ({ commit, rootCommit }, payload) {
-          commit(NESTED_MUTATIONS.INCREMENT, payload);
+        [VX_NESTED_ACTIONS.INCREMENT] ({ commit, rootCommit }, payload) {
+          commit(VX_NESTED_MUTATIONS.INCREMENT, payload);
 
-          rootCommit(COUNTER_MUTATIONS.SET_TIME);
-          rootCommit(COUNTER_MUTATIONS.SET_TIME, Date.now());
+          rootCommit(VX_COUNTER_MUTATIONS.SET_TIME);
+          rootCommit(VX_COUNTER_MUTATIONS.SET_TIME, Date.now());
         }
       };
       
@@ -72,19 +72,19 @@ module.exports.rootOperations = [
     `,
 
     output: formatResult(`
-      import { COUNTER_MUTATIONS } from '../mutations';
-      import { NESTED_MUTATIONS } from './mutations';
+      import { VX_COUNTER_MUTATIONS } from '../mutations';
+      import { VX_NESTED_MUTATIONS } from './mutations';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: "counter/nested/increment"
       };
 
       const vxActions = {
-        [NESTED_ACTIONS.INCREMENT.substr(NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ commit }, payload) {
-          commit(NESTED_MUTATIONS.INCREMENT.substr(NESTED_MUTATIONS.INCREMENT.lastIndexOf("/") + 1), payload);
+        [VX_NESTED_ACTIONS.INCREMENT.substr(VX_NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ commit }, payload) {
+          commit(VX_NESTED_MUTATIONS.INCREMENT.substr(VX_NESTED_MUTATIONS.INCREMENT.lastIndexOf("/") + 1), payload);
 
-          commit(COUNTER_MUTATIONS.SET_TIME, null, { root: true });
-          commit(COUNTER_MUTATIONS.SET_TIME, Date.now(), { root: true });
+          commit(VX_COUNTER_MUTATIONS.SET_TIME, null, { root: true });
+          commit(VX_COUNTER_MUTATIONS.SET_TIME, Date.now(), { root: true });
         }
       };
       
@@ -99,31 +99,31 @@ module.exports.rootOperations = [
     `,
 
     code: `
-      import { COUNTER_ACTIONS } from '../actions';
+      import { VX_COUNTER_ACTIONS } from '../actions';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: ["counter", "nested"]
       };
 
       export const vxActions = {
-        [NESTED_ACTIONS.INCREMENT] ({ rootDispatch }, payload) {
-          rootDispatch(COUNTER_ACTIONS.INCREMENT);
-          rootDispatch(COUNTER_ACTIONS.INCREMENT, payload);
+        [VX_NESTED_ACTIONS.INCREMENT] ({ rootDispatch }, payload) {
+          rootDispatch(VX_COUNTER_ACTIONS.INCREMENT);
+          rootDispatch(VX_COUNTER_ACTIONS.INCREMENT, payload);
         }
       };
     `,
 
     output: formatResult(`
-      import { COUNTER_ACTIONS } from '../actions';
+      import { VX_COUNTER_ACTIONS } from '../actions';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: "counter/nested/increment"
       };
 
       export const vxActions = {
-        [NESTED_ACTIONS.INCREMENT.substr(NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ dispatch }, payload) {
-          dispatch(COUNTER_ACTIONS.INCREMENT, null, { root: true });
-          dispatch(COUNTER_ACTIONS.INCREMENT, payload, { root: true });
+        [VX_NESTED_ACTIONS.INCREMENT.substr(VX_NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ dispatch }, payload) {
+          dispatch(VX_COUNTER_ACTIONS.INCREMENT, null, { root: true });
+          dispatch(VX_COUNTER_ACTIONS.INCREMENT, payload, { root: true });
         }
       };
     `)
@@ -137,16 +137,16 @@ module.exports.rootOperations = [
     `,
 
     code: `
-      import { COUNTER_ACTIONS } from '../actions';
+      import { VX_COUNTER_ACTIONS } from '../actions';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: ["counter", "nested"]
       };
 
       const vxActions = {
-        [NESTED_ACTIONS.INCREMENT] ({ rootDispatch }, payload) {
-          rootDispatch(COUNTER_ACTIONS.INCREMENT);
-          rootDispatch(COUNTER_ACTIONS.INCREMENT, payload);
+        [VX_NESTED_ACTIONS.INCREMENT] ({ rootDispatch }, payload) {
+          rootDispatch(VX_COUNTER_ACTIONS.INCREMENT);
+          rootDispatch(VX_COUNTER_ACTIONS.INCREMENT, payload);
         }
       };
       
@@ -154,16 +154,16 @@ module.exports.rootOperations = [
     `,
 
     output: formatResult(`
-      import { COUNTER_ACTIONS } from '../actions';
+      import { VX_COUNTER_ACTIONS } from '../actions';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: "counter/nested/increment"
       };
 
       const vxActions = {
-        [NESTED_ACTIONS.INCREMENT.substr(NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ dispatch }, payload) {
-          dispatch(COUNTER_ACTIONS.INCREMENT, null, { root: true });
-          dispatch(COUNTER_ACTIONS.INCREMENT, payload, { root: true });
+        [VX_NESTED_ACTIONS.INCREMENT.substr(VX_NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ dispatch }, payload) {
+          dispatch(VX_COUNTER_ACTIONS.INCREMENT, null, { root: true });
+          dispatch(VX_COUNTER_ACTIONS.INCREMENT, payload, { root: true });
         }
       };
       
@@ -179,39 +179,39 @@ module.exports.rootOperations = [
     `,
 
     code: `
-      import { COUNTER_ACTIONS } from '../actions';
-      import { COUNTER_MUTATIONS } from '../mutations';
+      import { VX_COUNTER_ACTIONS } from '../actions';
+      import { VX_COUNTER_MUTATIONS } from '../mutations';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: ["counter", "nested"]
       };
 
       export const vxActions = {
-        [NESTED_ACTIONS.INCREMENT] ({ rootCommit, rootDispatch }, payload) {
-          rootCommit(COUNTER_MUTATIONS.SET_TIME);
-          rootCommit(COUNTER_MUTATIONS.SET_TIME, Date.now());
+        [VX_NESTED_ACTIONS.INCREMENT] ({ rootCommit, rootDispatch }, payload) {
+          rootCommit(VX_COUNTER_MUTATIONS.SET_TIME);
+          rootCommit(VX_COUNTER_MUTATIONS.SET_TIME, Date.now());
 
-          rootDispatch(COUNTER_ACTIONS.INCREMENT);
-          rootDispatch(COUNTER_ACTIONS.INCREMENT, payload);
+          rootDispatch(VX_COUNTER_ACTIONS.INCREMENT);
+          rootDispatch(VX_COUNTER_ACTIONS.INCREMENT, payload);
         }
       };
     `,
 
     output: formatResult(`
-      import { COUNTER_ACTIONS } from '../actions';
-      import { COUNTER_MUTATIONS } from '../mutations';
+      import { VX_COUNTER_ACTIONS } from '../actions';
+      import { VX_COUNTER_MUTATIONS } from '../mutations';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: "counter/nested/increment"
       };
 
       export const vxActions = {
-        [NESTED_ACTIONS.INCREMENT.substr(NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ commit, dispatch }, payload) {
-          commit(COUNTER_MUTATIONS.SET_TIME, null, { root: true });
-          commit(COUNTER_MUTATIONS.SET_TIME, Date.now(), { root: true });
+        [VX_NESTED_ACTIONS.INCREMENT.substr(VX_NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ commit, dispatch }, payload) {
+          commit(VX_COUNTER_MUTATIONS.SET_TIME, null, { root: true });
+          commit(VX_COUNTER_MUTATIONS.SET_TIME, Date.now(), { root: true });
 
-          dispatch(COUNTER_ACTIONS.INCREMENT, null, { root: true });
-          dispatch(COUNTER_ACTIONS.INCREMENT, payload, { root: true });
+          dispatch(VX_COUNTER_ACTIONS.INCREMENT, null, { root: true });
+          dispatch(VX_COUNTER_ACTIONS.INCREMENT, payload, { root: true });
         }
       };
     `)
@@ -226,20 +226,20 @@ module.exports.rootOperations = [
     `,
 
     code: `
-      import { COUNTER_ACTIONS } from '../actions';
-      import { COUNTER_MUTATIONS } from '../mutations';
+      import { VX_COUNTER_ACTIONS } from '../actions';
+      import { VX_COUNTER_MUTATIONS } from '../mutations';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: ["counter", "nested"]
       };
 
       const vxActions = {
-        [NESTED_ACTIONS.INCREMENT] ({ rootCommit, rootDispatch }, payload) {
-          rootCommit(COUNTER_MUTATIONS.SET_TIME);
-          rootCommit(COUNTER_MUTATIONS.SET_TIME, Date.now());
+        [VX_NESTED_ACTIONS.INCREMENT] ({ rootCommit, rootDispatch }, payload) {
+          rootCommit(VX_COUNTER_MUTATIONS.SET_TIME);
+          rootCommit(VX_COUNTER_MUTATIONS.SET_TIME, Date.now());
 
-          rootDispatch(COUNTER_ACTIONS.INCREMENT);
-          rootDispatch(COUNTER_ACTIONS.INCREMENT, payload);
+          rootDispatch(VX_COUNTER_ACTIONS.INCREMENT);
+          rootDispatch(VX_COUNTER_ACTIONS.INCREMENT, payload);
         }
       };
       
@@ -247,20 +247,20 @@ module.exports.rootOperations = [
     `,
 
     output: formatResult(`
-      import { COUNTER_ACTIONS } from '../actions';
-      import { COUNTER_MUTATIONS } from '../mutations';
+      import { VX_COUNTER_ACTIONS } from '../actions';
+      import { VX_COUNTER_MUTATIONS } from '../mutations';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: "counter/nested/increment"
       };
 
       const vxActions = {
-        [NESTED_ACTIONS.INCREMENT.substr(NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ commit, dispatch }, payload) {
-          commit(COUNTER_MUTATIONS.SET_TIME, null, { root: true });
-          commit(COUNTER_MUTATIONS.SET_TIME, Date.now(), { root: true });
+        [VX_NESTED_ACTIONS.INCREMENT.substr(VX_NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ commit, dispatch }, payload) {
+          commit(VX_COUNTER_MUTATIONS.SET_TIME, null, { root: true });
+          commit(VX_COUNTER_MUTATIONS.SET_TIME, Date.now(), { root: true });
 
-          dispatch(COUNTER_ACTIONS.INCREMENT, null, { root: true });
-          dispatch(COUNTER_ACTIONS.INCREMENT, payload, { root: true });
+          dispatch(VX_COUNTER_ACTIONS.INCREMENT, null, { root: true });
+          dispatch(VX_COUNTER_ACTIONS.INCREMENT, payload, { root: true });
         }
       };
       
@@ -277,47 +277,47 @@ module.exports.rootOperations = [
     `,
 
     code: `
-      import { COUNTER_ACTIONS } from '../actions';
-      import { COUNTER_MUTATIONS } from '../mutations';
-      import { NESTED_MUTATIONS } from './mutations';
+      import { VX_COUNTER_ACTIONS } from '../actions';
+      import { VX_COUNTER_MUTATIONS } from '../mutations';
+      import { VX_NESTED_MUTATIONS } from './mutations';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: ["counter", "nested"]
       };
 
       export const vxActions = {
-        [NESTED_ACTIONS.INCREMENT] ({ commit, rootCommit, dispatch, rootDispatch }, payload) {
-          commit(NESTED_MUTATIONS.INCREMENT, payload);
-          dispatch(NESTED_ACTIONS.OTHER_ACTION, payload);
+        [VX_NESTED_ACTIONS.INCREMENT] ({ commit, rootCommit, dispatch, rootDispatch }, payload) {
+          commit(VX_NESTED_MUTATIONS.INCREMENT, payload);
+          dispatch(VX_NESTED_ACTIONS.OTHER_ACTION, payload);
 
-          rootCommit(COUNTER_MUTATIONS.SET_TIME);
-          rootCommit(COUNTER_MUTATIONS.SET_TIME, Date.now());
+          rootCommit(VX_COUNTER_MUTATIONS.SET_TIME);
+          rootCommit(VX_COUNTER_MUTATIONS.SET_TIME, Date.now());
 
-          rootDispatch(COUNTER_ACTIONS.INCREMENT);
-          rootDispatch(COUNTER_ACTIONS.INCREMENT, payload);
+          rootDispatch(VX_COUNTER_ACTIONS.INCREMENT);
+          rootDispatch(VX_COUNTER_ACTIONS.INCREMENT, payload);
         }
       };
     `,
 
     output: formatResult(`
-      import { COUNTER_ACTIONS } from '../actions';
-      import { COUNTER_MUTATIONS } from '../mutations';
-      import { NESTED_MUTATIONS } from './mutations';
+      import { VX_COUNTER_ACTIONS } from '../actions';
+      import { VX_COUNTER_MUTATIONS } from '../mutations';
+      import { VX_NESTED_MUTATIONS } from './mutations';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: "counter/nested/increment"
       };
 
       export const vxActions = {
-        [NESTED_ACTIONS.INCREMENT.substr(NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ commit, dispatch }, payload) {
-          commit(NESTED_MUTATIONS.INCREMENT.substr(NESTED_MUTATIONS.INCREMENT.lastIndexOf("/") + 1), payload);
-          dispatch(NESTED_ACTIONS.OTHER_ACTION.substr(NESTED_ACTIONS.OTHER_ACTION.lastIndexOf("/") + 1), payload);
+        [VX_NESTED_ACTIONS.INCREMENT.substr(VX_NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ commit, dispatch }, payload) {
+          commit(VX_NESTED_MUTATIONS.INCREMENT.substr(VX_NESTED_MUTATIONS.INCREMENT.lastIndexOf("/") + 1), payload);
+          dispatch(VX_NESTED_ACTIONS.OTHER_ACTION.substr(VX_NESTED_ACTIONS.OTHER_ACTION.lastIndexOf("/") + 1), payload);
 
-          commit(COUNTER_MUTATIONS.SET_TIME, null, { root: true });
-          commit(COUNTER_MUTATIONS.SET_TIME, Date.now(), { root: true });
+          commit(VX_COUNTER_MUTATIONS.SET_TIME, null, { root: true });
+          commit(VX_COUNTER_MUTATIONS.SET_TIME, Date.now(), { root: true });
 
-          dispatch(COUNTER_ACTIONS.INCREMENT, null, { root: true });
-          dispatch(COUNTER_ACTIONS.INCREMENT, payload, { root: true });
+          dispatch(VX_COUNTER_ACTIONS.INCREMENT, null, { root: true });
+          dispatch(VX_COUNTER_ACTIONS.INCREMENT, payload, { root: true });
         }
       };
     `)
@@ -333,24 +333,24 @@ module.exports.rootOperations = [
     `,
 
     code: `
-      import { COUNTER_ACTIONS } from '../actions';
-      import { COUNTER_MUTATIONS } from '../mutations';
-      import { NESTED_MUTATIONS } from './mutations';
+      import { VX_COUNTER_ACTIONS } from '../actions';
+      import { VX_COUNTER_MUTATIONS } from '../mutations';
+      import { VX_NESTED_MUTATIONS } from './mutations';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: ["counter", "nested"]
       };
 
       const vxActions = {
-        [NESTED_ACTIONS.INCREMENT] ({ commit, rootCommit, dispatch, rootDispatch }, payload) {
-          commit(NESTED_MUTATIONS.INCREMENT, payload);
-          dispatch(NESTED_ACTIONS.OTHER_ACTION, payload);
+        [VX_NESTED_ACTIONS.INCREMENT] ({ commit, rootCommit, dispatch, rootDispatch }, payload) {
+          commit(VX_NESTED_MUTATIONS.INCREMENT, payload);
+          dispatch(VX_NESTED_ACTIONS.OTHER_ACTION, payload);
 
-          rootCommit(COUNTER_MUTATIONS.SET_TIME);
-          rootCommit(COUNTER_MUTATIONS.SET_TIME, Date.now());
+          rootCommit(VX_COUNTER_MUTATIONS.SET_TIME);
+          rootCommit(VX_COUNTER_MUTATIONS.SET_TIME, Date.now());
 
-          rootDispatch(COUNTER_ACTIONS.INCREMENT);
-          rootDispatch(COUNTER_ACTIONS.INCREMENT, payload);
+          rootDispatch(VX_COUNTER_ACTIONS.INCREMENT);
+          rootDispatch(VX_COUNTER_ACTIONS.INCREMENT, payload);
         }
       };
       
@@ -358,24 +358,24 @@ module.exports.rootOperations = [
     `,
 
     output: formatResult(`
-      import { COUNTER_ACTIONS } from '../actions';
-      import { COUNTER_MUTATIONS } from '../mutations';
-      import { NESTED_MUTATIONS } from './mutations';
+      import { VX_COUNTER_ACTIONS } from '../actions';
+      import { VX_COUNTER_MUTATIONS } from '../mutations';
+      import { VX_NESTED_MUTATIONS } from './mutations';
 
-      export const NESTED_ACTIONS = {
+      export const VX_NESTED_ACTIONS = {
         INCREMENT: "counter/nested/increment"
       };
 
       const vxActions = {
-        [NESTED_ACTIONS.INCREMENT.substr(NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ commit, dispatch }, payload) {
-          commit(NESTED_MUTATIONS.INCREMENT.substr(NESTED_MUTATIONS.INCREMENT.lastIndexOf("/") + 1), payload);
-          dispatch(NESTED_ACTIONS.OTHER_ACTION.substr(NESTED_ACTIONS.OTHER_ACTION.lastIndexOf("/") + 1), payload);
+        [VX_NESTED_ACTIONS.INCREMENT.substr(VX_NESTED_ACTIONS.INCREMENT.lastIndexOf("/") + 1)]({ commit, dispatch }, payload) {
+          commit(VX_NESTED_MUTATIONS.INCREMENT.substr(VX_NESTED_MUTATIONS.INCREMENT.lastIndexOf("/") + 1), payload);
+          dispatch(VX_NESTED_ACTIONS.OTHER_ACTION.substr(VX_NESTED_ACTIONS.OTHER_ACTION.lastIndexOf("/") + 1), payload);
 
-          commit(COUNTER_MUTATIONS.SET_TIME, null, { root: true });
-          commit(COUNTER_MUTATIONS.SET_TIME, Date.now(), { root: true });
+          commit(VX_COUNTER_MUTATIONS.SET_TIME, null, { root: true });
+          commit(VX_COUNTER_MUTATIONS.SET_TIME, Date.now(), { root: true });
 
-          dispatch(COUNTER_ACTIONS.INCREMENT, null, { root: true });
-          dispatch(COUNTER_ACTIONS.INCREMENT, payload, { root: true });
+          dispatch(VX_COUNTER_ACTIONS.INCREMENT, null, { root: true });
+          dispatch(VX_COUNTER_ACTIONS.INCREMENT, payload, { root: true });
         }
       };
       

@@ -9,9 +9,7 @@ const {
   STR_ROOT_COMMIT,
   STR_ROOT_DISPATCH,
 
-  SUFFIX_ACTIONS,
-  SUFFIX_MUTATIONS,
-  SUFFIX_GETTERS,
+  STORE_PREFIX,
 
   STR_COMPUTED,
   STR_METHODS,
@@ -272,23 +270,12 @@ const visitor = (t) => ({
     }
 
     if (
-        path.node.name.includes('_') &&
+        path.node.name.startsWith(STORE_PREFIX) &&
         t.isVariableDeclarator(path.parent)
     ) {
-      const nodeSuffix = [
-        SUFFIX_ACTIONS,
-        SUFFIX_MUTATIONS,
-        SUFFIX_GETTERS
-      ].filter((v) => path.node.name.includes(v))
-
-      /* istanbul ignore else  */
-      if (
-          nodeSuffix[0] && path.node.name.endsWith(nodeSuffix[0])
-      ) {
-        path.parentPath.node.init.properties.forEach((node) => {
-          addCamelCaseValueToSnakeCaseKey(t, node)
-        })
-      }
+      path.parentPath.node.init.properties.forEach((node) => {
+        addCamelCaseValueToSnakeCaseKey(t, node)
+      })
 
       path.stop()
     }

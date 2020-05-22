@@ -1,11 +1,11 @@
-export const NESTED_ACTIONS = {
+export const VX_NESTED_ACTIONS = {
   RANDOMIZE: ['counter', 'nested'],
 }
 
-export const NESTED_MUTATIONS = {
+export const VX_NESTED_MUTATIONS = {
   RANDOMIZE: ['counter', 'nested'],
 }
 
-export const NESTED_GETTERS = {
+export const VX_NESTED_GETTERS = {
   RANDOM_MULTIPLIED: ['counter', 'nested'],
 }

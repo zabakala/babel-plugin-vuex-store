@@ -1,11 +1,11 @@
-import { COUNTER_GETTERS } from './_map'
+import { VX_COUNTER_GETTERS } from './_map'
 
 export const getters = {
-  [COUNTER_GETTERS.TOTAL] (state) {
+  [VX_COUNTER_GETTERS.TOTAL] (state) {
     return state.count
   },
 
-  [COUNTER_GETTERS.TOTAL_MULTIPLIED]: (state) => (multiplier) => {
+  [VX_COUNTER_GETTERS.TOTAL_MULTIPLIED]: (state) => (multiplier) => {
     return state.count * multiplier
   },
 }

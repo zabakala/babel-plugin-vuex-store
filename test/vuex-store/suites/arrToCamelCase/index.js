@@ -11,34 +11,34 @@ module.exports.arrToCamelCase = [
     `,
 
     code: `
-      export const CART_ACTIONS = {
+      export const VX_CART_ACTIONS = {
         ADD_TO_CART: ['cart'],
         REMOVE_FROM_CART: ['cart'],
       };
 
-      export const CART_MUTATIONS = {
+      export const VX_CART_MUTATIONS = {
         DELETE_CART: ["cart"],
         REMOVE_FROM_CART: ["cart"]
       };
 
-      export const CART_GETTERS = {
+      export const VX_CART_GETTERS = {
         GET_CART_BY_ID: ["cart"],
         GET_ALL_CARTS: ["cart"]
       };
     `,
 
     output: formatResult(`
-      export const CART_ACTIONS = {
+      export const VX_CART_ACTIONS = {
         ADD_TO_CART: "cart/addToCart",
         REMOVE_FROM_CART: "cart/removeFromCart"
       };
 
-      export const CART_MUTATIONS = {
+      export const VX_CART_MUTATIONS = {
         DELETE_CART: "cart/deleteCart",
         REMOVE_FROM_CART: "cart/removeFromCart"
       };
 
-      export const CART_GETTERS = {
+      export const VX_CART_GETTERS = {
         GET_CART_BY_ID: "cart/getCartById",
         GET_ALL_CARTS: "cart/getAllCarts"
       };
@@ -56,14 +56,14 @@ module.exports.arrToCamelCase = [
     `,
 
     code: `
-      export const CART_GETTERS = {
+      export const VX_CART_GETTERS = {
         AA_BB_CC: ["cart", "foo"],
         DDD_EEE_FFF: ["cart", "foo", "baz"]
       };
     `,
 
     output: formatResult(`
-      export const CART_GETTERS = {
+      export const VX_CART_GETTERS = {
         AA_BB_CC: "cart/foo/aaBbCc",
         DDD_EEE_FFF: "cart/foo/baz/dddEeeFff"
       };

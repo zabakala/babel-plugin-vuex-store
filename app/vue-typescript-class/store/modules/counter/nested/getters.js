@@ -1,7 +1,7 @@
-import { NESTED_GETTERS } from './_map'
+import { VX_NESTED_GETTERS } from './_map'
 
 export const getters = {
-  [NESTED_GETTERS.RANDOM_MULTIPLIED]: (state) => (multiplier) => {
+  [VX_NESTED_GETTERS.RANDOM_MULTIPLIED]: (state) => (multiplier) => {
     return state.nestedRandom * multiplier
   },
 }

@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 
 import Logo from '../../components/Logo'
-import { COUNTER_ACTIONS, COUNTER_GETTERS } from '../../store/modules/counter/_map'
-import { NESTED_ACTIONS, NESTED_GETTERS } from '../../store/modules/counter/nested/_map'
+import { VX_COUNTER_ACTIONS, VX_COUNTER_GETTERS } from '../../store/modules/counter/_map'
+import { VX_NESTED_ACTIONS, VX_NESTED_GETTERS } from '../../store/modules/counter/nested/_map'
 
 @Component({
     template: `
@@ -59,14 +59,14 @@ import { NESTED_ACTIONS, NESTED_GETTERS } from '../../store/modules/counter/nest
         vxsRootRandom: () => 'counter',
         vxsNestedRandom: () => 'counter/nested',
 
-        vxgCounter: COUNTER_GETTERS.TOTAL,
-        vxgCounterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
-        vxgNestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
+        vxgCounter: VX_COUNTER_GETTERS.TOTAL,
+        vxgCounterMultiplied: VX_COUNTER_GETTERS.TOTAL_MULTIPLIED,
+        vxgNestedRandomMultiplied: VX_NESTED_GETTERS.RANDOM_MULTIPLIED,
     },
 
     methods: {
-        vxaIncrementCounter: () => COUNTER_ACTIONS.INCREMENT,
-        vxaRandomizeNumber: () => NESTED_ACTIONS.RANDOMIZE,
+        vxaIncrementCounter: () => VX_COUNTER_ACTIONS.INCREMENT,
+        vxaRandomizeNumber: () => VX_NESTED_ACTIONS.RANDOMIZE,
     }
 })
 export default class Index extends Vue {}

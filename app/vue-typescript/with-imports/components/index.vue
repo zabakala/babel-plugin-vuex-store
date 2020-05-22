@@ -44,8 +44,8 @@
 <script>
   import Logo from '../../components/Logo.vue'
   import { mapActions, mapGetters, mapState } from 'vuex'
-  import { COUNTER_ACTIONS, COUNTER_GETTERS } from '../../store/modules/counter/_map'
-  import { NESTED_ACTIONS, NESTED_GETTERS } from '../../store/modules/counter/nested/_map'
+  import { VX_COUNTER_ACTIONS, VX_COUNTER_GETTERS } from '../../store/modules/counter/_map'
+  import { VX_NESTED_ACTIONS, VX_NESTED_GETTERS } from '../../store/modules/counter/nested/_map'
 
   export default {
     components: {
@@ -58,16 +58,16 @@
       ...mapState('counter/nested', ['nestedRandom']),
 
       ...mapGetters({
-        counter: COUNTER_GETTERS.TOTAL,
-        counterMultiplied: COUNTER_GETTERS.TOTAL_MULTIPLIED,
-        nestedRandomMultiplied: NESTED_GETTERS.RANDOM_MULTIPLIED,
+        counter: VX_COUNTER_GETTERS.TOTAL,
+        counterMultiplied: VX_COUNTER_GETTERS.TOTAL_MULTIPLIED,
+        nestedRandomMultiplied: VX_NESTED_GETTERS.RANDOM_MULTIPLIED,
       }),
     },
 
     methods: {
       ...mapActions({
-          incrementCounter: COUNTER_ACTIONS.INCREMENT,
-          randomizeNumber: NESTED_ACTIONS.RANDOMIZE,
+          incrementCounter: VX_COUNTER_ACTIONS.INCREMENT,
+          randomizeNumber: VX_NESTED_ACTIONS.RANDOMIZE,
       }),
     }
   }
