@@ -60,47 +60,47 @@ This tends to be repetitive as you mostly mention the action, mutation or getter
 
 Using this plugin allows you to specify only the module name as an array item. That is all there is to it:
 ```sh
-export const COUNTER_ACTIONS = {
+export const VX_COUNTER_ACTIONS = {
   INCREMENT: ['counter']
 }
 
-export const COUNTER_MUTATIONS = {
+export const VX_COUNTER_MUTATIONS = {
   INCREMENT: ['counter']
 }
 
-export const COUNTER_GETTERS = {
+export const VX_COUNTER_GETTERS = {
   TOTAL: ['counter']
 }
 ```
 
 By now you have probably guessed it right for how to deal with nested modules. Just extend the array with the nested module:
 ```sh
-export const NESTED_ACTIONS = {
+export const VX_NESTED_ACTIONS = {
   INCREMENT: ['counter', 'nestedModule']
 }
 
-export const NESTED_MUTATIONS = {
+export const VX_NESTED_MUTATIONS = {
   INCREMENT: ['counter', 'nestedModule']
 }
 
-export const NESTED_GETTERS = {
+export const VX_NESTED_GETTERS = {
   TOTAL: ['counter', 'nestedModule']
 }
 ```
 
 To make it all possible, the only requirements are:
-**1** - sticking to a naming convention when defining your actions, mutations or getters schema:
-- _ACTIONS
-- _MUTATIONS
-- _GETTERS
+**1** - sticking to a prefix naming convention when defining your actions, mutations or getters schema:
+- VX_ACTIONS
+- VX_MUTATIONS
+- VX_GETTERS
 
 i.e.:
 
-- export const COUNTER **_ACTIONS** = { ... }<br>
-- export const COUNTER **_MUTATIONS** = { ... }<br>
-- export const COUNTER **_GETTERS** = { ... }
+- export const VX_COUNTER_ACTIONS = { ... }<br>
+- export const VX_COUNTER_MUTATIONS = { ... }<br>
+- export const VX_COUNTER_GETTERS = { ... }
 
-**2** - sticking to a naming convention when defining the implementation body of your actions, mutations or getters:
+**2** - sticking to a prefix naming convention when defining the implementation body of your actions, mutations or getters:
 
 - vxActions
 - vxMutations
@@ -108,36 +108,36 @@ i.e.:
 
 i.e.:
 
-- export const **vx**Actions = { ... }<br>
-- export const **vx**Mutations = { ... }<br>
-- export const **vx**Getters = { ... }
+- export const vxActions = { ... }<br>
+- export const vxMutations = { ... }<br>
+- export const vxGetters = { ... }
 
 You can then do your imports within your store without a need to do any module name-spacing stuff, just:
 ```sh
-import { COUNTER_ACTIONS, COUNTER_MUTATIONS } from '...'
+import { VX_COUNTER_ACTIONS, VX_COUNTER_MUTATIONS } from '...'
 
 export const vxActions = {
-  [COUNTER_ACTIONS.INCREMENT] ({ commit }, payload) {
-    commit(COUNTER_MUTATIONS.INCREMENT, payload)
+  [VX_COUNTER_ACTIONS.INCREMENT] ({ commit }, payload) {
+    commit(VX_COUNTER_MUTATIONS.INCREMENT, payload)
   }
 }
 ```
 
 ```sh
-import { COUNTER_MUTATIONS } from '...'
+import { VX_COUNTER_MUTATIONS } from '...'
 
 export const vxMutations = {
-  [COUNTER_MUTATIONS.INCREMENT] (state, payload) {
+  [VX_COUNTER_MUTATIONS.INCREMENT] (state, payload) {
     state.count += payload
   }
 }
 ```
 
 ```sh
-import { COUNTER_GETTERS } from '...'
+import { VX_COUNTER_GETTERS } from '...'
 
 export const vxGetters = {
-  [COUNTER_GETTERS.TOTAL] (state) {
+  [VX_COUNTER_GETTERS.TOTAL] (state) {
     return state.count
   }
 }
@@ -154,21 +154,21 @@ _example_template.vue_
 <script>
     import { mapActions, mapGetters, mapState } 
         from 'vuex'
-    import { COUNTER_GETTERS } 
+    import { VX_COUNTER_GETTERS } 
         from './store/modules/counter/...'
-    import { NESTED_ACTIONS } 
+    import { VX_NESTED_ACTIONS } 
         from './store/modules/counter/nested/...'
     
     export default {
         computed: {
           ...mapGetters({
-            counter: COUNTER_GETTERS.TOTAL
+            counter: VX_COUNTER_GETTERS.TOTAL
           }),
         },
         
         methods: {
           ...mapActions({
-            incrementCounter: COUNTER_ACTIONS.INCREMENT
+            incrementCounter: VX_COUNTER_ACTIONS.INCREMENT
           })
         }
     }
