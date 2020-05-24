@@ -20,5 +20,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/zabakala/babel-plugin-vuex-store"
+  },
+  "scripts": {
+    "prepublishOnly": "cd ../ && npm run build:min && cd test-e2e && npm run e2e"
   }
 }
