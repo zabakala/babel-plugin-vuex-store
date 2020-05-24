@@ -1,4 +1,5 @@
 node_modules
+plugin/src/index.min.js
 *.js.map
 .idea
 coverage/
