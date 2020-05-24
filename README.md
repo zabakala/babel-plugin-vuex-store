@@ -90,9 +90,7 @@ export const VX_NESTED_GETTERS = {
 
 To make it all possible, the only requirements are:
 **1** - sticking to a prefix naming convention when defining your actions, mutations or getters schema:
-- VX_ACTIONS
-- VX_MUTATIONS
-- VX_GETTERS
+- VX_[...]
 
 i.e.:
 
@@ -102,9 +100,7 @@ i.e.:
 
 **2** - sticking to a prefix naming convention when defining the implementation body of your actions, mutations or getters:
 
-- vxActions
-- vxMutations
-- vxGetters
+- vx[...]
 
 i.e.:
 
