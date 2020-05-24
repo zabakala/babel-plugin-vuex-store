@@ -13,15 +13,15 @@
 
   "scripts": {
     "test": "./node_modules/.bin/jest specs/ --runInBand",
-    "ci-vue-base": "node_modules/.bin/cross-env  PAGE_TITLE=\"Base - No plugin\" FILE=/../app/vue-base/index.html STATIC=dist SCRIPT=dist npm test",
-    "ci-vue-plugin-nuxt-with-imports": "node_modules/.bin/cross-env  PAGE_TITLE=\"vue-nuxt\" FILE=/../app/vue-nuxt/dist/index.html FRAGMENT=\"#/index-with-imports\" STATIC=app/vue-nuxt/dist SCRIPT=dist npm test",
-    "ci-vue-plugin-nuxt-without-imports": "node_modules/.bin/cross-env  PAGE_TITLE=\"vue-nuxt\" FILE=/../app/vue-nuxt/dist/index.html FRAGMENT=\"#/index-without-imports\" STATIC=app/vue-nuxt/dist SCRIPT=dist npm test",
-    "ci-vue-plugin-with-imports": "node_modules/.bin/cross-env  PAGE_TITLE=\"Plugin - Imports - Yes\" FILE=/../app/vue-plugin/with-imports/index.html STATIC=dist SCRIPT=dist npm test",
-    "ci-vue-plugin-without-imports": "node_modules/.bin/cross-env  PAGE_TITLE=\"Plugin - Imports - No\" FILE=/../app/vue-plugin/without-imports/index.html STATIC=dist SCRIPT=dist npm test",
-    "ci-vue-plugin-ts-with-imports": "node_modules/.bin/cross-env  PAGE_TITLE=\"Plugin - TS - Imports - Yes\" FILE=/../app/vue-typescript/with-imports/index.html STATIC=dist SCRIPT=dist npm test",
-    "ci-vue-plugin-ts-without-imports": "node_modules/.bin/cross-env  PAGE_TITLE=\"Plugin - TS - Imports - No\" FILE=/../app/vue-typescript/without-imports/index.html STATIC=dist SCRIPT=dist npm test",
-    "ci-vue-plugin-ts-class-with-imports": "node_modules/.bin/cross-env  PAGE_TITLE=\"Plugin - TS - Class - Imports - Yes\" FILE=/../app/vue-typescript-class/with-imports/index.html STATIC=dist SCRIPT=dist npm test",
-    "ci-vue-plugin-ts-class-without-imports": "node_modules/.bin/cross-env  PAGE_TITLE=\"Plugin - TS - Class - Imports - No\" FILE=/../app/vue-typescript-class/without-imports/index.html STATIC=dist SCRIPT=dist npm test",
+    "ci-vue-base": "node_modules/.bin/cross-env PAGE_TITLE=\"Base - No plugin\" FILE=/../app/vue-base/index.html STATIC=dist SCRIPT=dist npm test",
+    "ci-vue-plugin-nuxt-with-imports": "node_modules/.bin/cross-env PAGE_TITLE=\"vue-nuxt\" FILE=/../app/vue-nuxt/dist/index.html FRAGMENT=\"#/index-with-imports\" STATIC=app/vue-nuxt/dist SCRIPT=dist npm test",
+    "ci-vue-plugin-nuxt-without-imports": "node_modules/.bin/cross-env PAGE_TITLE=\"vue-nuxt\" FILE=/../app/vue-nuxt/dist/index.html FRAGMENT=\"#/index-without-imports\" STATIC=app/vue-nuxt/dist SCRIPT=dist npm test",
+    "ci-vue-plugin-with-imports": "node_modules/.bin/cross-env PAGE_TITLE=\"Plugin - Imports - Yes\" FILE=/../app/vue-plugin/with-imports/index.html STATIC=dist SCRIPT=dist npm test",
+    "ci-vue-plugin-without-imports": "node_modules/.bin/cross-env PAGE_TITLE=\"Plugin - Imports - No\" FILE=/../app/vue-plugin/without-imports/index.html STATIC=dist SCRIPT=dist npm test",
+    "ci-vue-plugin-ts-with-imports": "node_modules/.bin/cross-env PAGE_TITLE=\"Plugin - TS - Imports - Yes\" FILE=/../app/vue-typescript/with-imports/index.html STATIC=dist SCRIPT=dist npm test",
+    "ci-vue-plugin-ts-without-imports": "node_modules/.bin/cross-env PAGE_TITLE=\"Plugin - TS - Imports - No\" FILE=/../app/vue-typescript/without-imports/index.html STATIC=dist SCRIPT=dist npm test",
+    "ci-vue-plugin-ts-class-with-imports": "node_modules/.bin/cross-env PAGE_TITLE=\"Plugin - TS - Class - Imports - Yes\" FILE=/../app/vue-typescript-class/with-imports/index.html STATIC=dist SCRIPT=dist npm test",
+    "ci-vue-plugin-ts-class-without-imports": "node_modules/.bin/cross-env PAGE_TITLE=\"Plugin - TS - Class - Imports - No\" FILE=/../app/vue-typescript-class/without-imports/index.html STATIC=dist SCRIPT=dist npm test",
     "e2e": "npm run ci-vue-base && npm run ci-vue-plugin-nuxt-with-imports && npm run ci-vue-plugin-nuxt-without-imports && npm run ci-vue-plugin-with-imports && npm run ci-vue-plugin-without-imports && npm run ci-vue-plugin-ts-with-imports && npm run ci-vue-plugin-ts-without-imports && npm run ci-vue-plugin-ts-class-with-imports && npm run ci-vue-plugin-ts-class-without-imports"
   }
 }
